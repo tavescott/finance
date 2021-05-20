@@ -134,8 +134,8 @@
             <div class="container" data-aos="fade-up">
 
                 <div class="section-title">
-                    <h2>Testimonials</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+                    <h2>Shuhuda</h2>
+                    <p>Tazama shuhuda za hivi karibuni kutoka kwa watumiaji wa mfumo wa Jimudu.</p>
                 </div>
 
                 <div class="owl-carousel testimonials-carousel">
@@ -195,6 +195,8 @@
                         <h4>Entrepreneur</h4>
                     </div>
 
+
+
                 </div>
 
             </div>
@@ -204,9 +206,9 @@
         <section id="cta" class="cta">
             <div class="container" data-aos="zoom-in">
                 <div class="text-center">
-                    <h3>Call To Action</h3>
-                    <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a class="cta-btn" href="#">Call To Action</a>
+                    <h3>Unasubiri nini?</h3>
+                    <p>Kujiunga na mfumo huu ni <b>Bure</b> na <b>rahisi.</b> Jiunge sasa na Jimudu kwa maendeleo chanya ya biashara yako!</p>
+                    <a class="cta-btn" href="#">Jiunge</a>
                 </div>
             </div>
         </section><!-- End Cta Section -->
