@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="#about" class="btn-get-started scrollto">Anza sasa</a>
+                <a href="{{route('register')}}" class="btn-get-started">Anza sasa</a>
             </div>
 
             <div class="row icon-boxes text-center">
@@ -81,7 +81,7 @@
                                 <li>Huduma kwa wateja 24/7</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Chagua</a>
+                                <a href="{{route('stepOnePlan', 1)}}" class="btn-buy">Chagua</a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                                 <li><b>Ripoti Bure</b></li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Chagua</a>
+                                <a href="{{route('stepOnePlan', 2)}}" class="btn-buy">Chagua</a>
                             </div>
                         </div>
                     </div>
@@ -117,9 +117,10 @@
                                 <li><b>Watumiaji bila kikomo</b></li>
                                 <li>Huduma kwa wateja 24/7</li>
                                 <li><b>Ripoti Bure</b></li>
+                                <li><b>Ushauri wa wataalam</b></li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="#" class="btn-buy">Chagua</a>
+                                <a href="{{route('stepOnePlan', 3)}}" class="btn-buy">Chagua</a>
                             </div>
                         </div>
                     </div>
@@ -208,7 +209,7 @@
                 <div class="text-center">
                     <h3>Unasubiri nini?</h3>
                     <p>Kujiunga na mfumo huu ni <b>Bure</b> na <b>rahisi.</b> Jiunge sasa na Jimudu kwa maendeleo chanya ya biashara yako!</p>
-                    <a class="cta-btn" href="#">Jiunge</a>
+                    <a class="cta-btn" href="{{route('register')}}">Jiunge</a>
                 </div>
             </div>
         </section><!-- End Cta Section -->

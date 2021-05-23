@@ -55,7 +55,16 @@
                     </ul>
                 </nav><!-- .nav-menu -->
 
-                <a href="#about" class="get-started-btn scrollto">Ingia</a>
+                    @auth
+                        <a href="{{route('home')}}" class="get-started-btn scrollto">
+                           Dashbodi
+                        </a>
+                      @else
+                        <a href="{{route('login')}}" class="get-started-btn scrollto">
+                            Ingia
+                        </a>
+                    @endauth
+
 
             </div>
         </header><!-- End Header -->
@@ -86,6 +95,8 @@
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Nyumbani</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Vifurushi</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Shuhuda</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="{{route('register')}}">Jiunge</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="{{route('login')}}">Ingia</a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="#">Vigezo na masharti </a></li>
                                 <li><i class="bx bx-chevron-right"></i> <a href="{{route('faq')}}">Maswali ya mara kwa mara</a></li>
                             </ul>
@@ -118,10 +129,10 @@
 
                 <div class="text-center">
                     <div class="copyright">
-                        &copy; Copyright <strong><span>{{date('Y')}}</span></strong>. All Rights Reserved
+                        &copy; <strong><span>{{date('Y')}}</span></strong>. Haki zote zimehifadhiwa
                     </div>
                     <div class="credits">
-                        Designed by <b>Rombo Nation</b>
+                        Imetegenezwa na: <b>Rombo Nation</b>
                     </div>
                 </div>
 
