@@ -31,4 +31,23 @@ class Business extends Model
     {
         return $this->belongsTo(Plan::class);
     }
+
+    public function items(){
+        return $this->hasMany(Item::class);
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
 }

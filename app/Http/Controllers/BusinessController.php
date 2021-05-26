@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Business;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BusinessController extends Controller
@@ -72,7 +73,7 @@ class BusinessController extends Controller
     public function destroy(Business $business)
     {
         $business->delete();
-
+        User::where('id', $business->id)->delete();
         return back()->with('success', 'Biashara imefutwa!');
     }
 }

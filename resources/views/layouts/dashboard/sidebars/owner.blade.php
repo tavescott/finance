@@ -6,21 +6,21 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link"  href="{{route('purchases.index')}}" >
             <i class="fa fa-shopping-cart menu-icon"></i>
             <span class="menu-title">Manunuzi</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" href="{{route('sales.index')}}">
             <i class="ri-money-dollar-circle-fill menu-icon"></i>
             <span class="menu-title">Mauzo</span>
         </a>
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" href="{{route('expenses.index')}}">
             <i class="ri-hand-coin-fill menu-icon"></i>
             <span class="menu-title">Matumizi</span>
         </a>

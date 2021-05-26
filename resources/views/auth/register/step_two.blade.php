@@ -61,8 +61,9 @@
                                 <label for="name">Aina ya mauzo: <sup style="color: red;">*</sup></label>
                                 <select class="form-control" style="@error('product_type') border: 1px solid red; @enderror"   name="product_type" id="product_type">
                                     <option selected disabled>Chagua</option>
-                                    <option value="Bidhaa" @if($business && $business->product_type == "Bidhaa") selected @endif>Bidhaa</option>
-                                    <option value="Huduma" @if($business && $business->product_type == "Huduma") selected @endif>Huduma</option>
+                                    <option value="Bidhaa" @if($business && $business->product_type == "Bidhaa") selected @endif>Bidhaa Pekee</option>
+                                    <option value="Huduma" @if($business && $business->product_type == "Huduma") selected @endif>Huduma Pekee</option>
+                                    <option value="Bidhaa na Huduma" @if($business && $business->product_type == "Bidhaa na Huduma") selected @endif>Bidhaa na Huduma</option>
                                 </select>
                                    @error('product_type')
                                 <span style="color: red">

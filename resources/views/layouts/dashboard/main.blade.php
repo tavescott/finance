@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('auth/js/select.dataTables.min.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
-
+    @yield('styles')
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('auth/css/vertical-layout-light/style.css')}}">
@@ -33,8 +33,19 @@
             @include('layouts.dashboard.sidebar')
             <div class="main-panel offset-md-2" id="main-panel">
                 <div class="content-wrapper">
-                    @include('layouts.dashboard.alerts')
-                    @yield('content')
+                    <div class="row">
+                        <div class="col-md-12 grid-margin " >
+                            <div class="row">
+                                <div class="col-12 mb-4 mb-xl-0">
+                                    <h3 class="font-weight-bold text-center">@yield('content-title')</h3>
+                                    <h6 class="font-weight-normal mb-0 mt-3 text-center">@yield('content-subtitle')</h6>
+                                    @include('layouts.dashboard.alerts')
+
+                                    @yield('content')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 @include('layouts.dashboard.footer')
             </div>

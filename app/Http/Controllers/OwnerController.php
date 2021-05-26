@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin\Unit;
+use App\Models\Business;
+use App\Models\Item;
 use App\Models\Owner;
 use Illuminate\Http\Request;
 
@@ -10,7 +13,26 @@ class OwnerController extends Controller
 
     public function index()
     {
-        return view('owner.index');
+        if (auth()->user()->role->name == 'Owner'){
+            $owner = Owner::where('user_id', auth()->id())->first();
+            $business = Business::where('owner_id', $owner->id)->first();
+            $items = Item::where('business_id', $business->id)->get();
+
+            if($items->count()>0){
+                return view('owner.index');
+            }
+
+            else{
+
+
+                return redirect()->route('items.create');
+
+            }
+
+        }
+        else{
+            abort(403);
+        }
     }
 
     /**

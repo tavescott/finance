@@ -1,21 +1,20 @@
 
-<div class="errors mt-5 text-center" style="font-size: 17px">
-    <div class="errors_displayed col-md-12">
-        @if (session('success'))
-            <div class="alerts alert alert-success alert-dismissible fade show d-flex justify-content-between" role="alert">
+<div class="errors text-center mt-3 col-md-12" style="font-size: 17px">
+    <div class="errors_displayed">
+           @if(session('success'))
+            <div class="alerts alert alert-success alert-dismissible fade show" role="alert">
                 <div>
                     <i class="fas fa-check-circle" ></i>
                     <b>Fanikio :)  </b>
                 </div>
 
-               <span>{{ session('success')}}</span>
+                <span>{{session('success')}}</span>
 
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <br>
-        @endif
+           @endif
 
         @if (session('fail'))
             <div class="alerts alert alert-danger alert-dismissible fade show" role="alert">
@@ -32,7 +31,7 @@
         @if (count($errors) > 0)
             <div class="alerts  alert alert-danger alert-dismissible fade show" role="alert">
                 <div class="many">
-                    <strong>Whoops!</strong> There were some problems with your input.
+                    <strong>Kosa!</strong> Kuna kasoro kwenye fomu yako! Tafadhali angalia vizuri kisha urekebishe.
                     <ul style="list-style: none">
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
