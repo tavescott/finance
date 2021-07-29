@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@yield('title') Jimudu</title>
+    <title>@yield('title') | Imudu</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('auth/vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{asset('auth/vendors/ti-icons/css/themify-icons.css')}}">
@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="{{asset('auth/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
     <link rel="stylesheet" href="{{asset('auth/vendors/ti-icons/css/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('auth/js/select.dataTables.min.css')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('auth/css/fontawesome/css/all.min.css')}}">
+{{--    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">--}}
     <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
     @yield('styles')
     <!-- End plugin css for this page -->
@@ -23,8 +24,8 @@
     <link rel="stylesheet" href="{{asset('auth/css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
     <!-- Favicons -->
-    <link href="{{asset('assets/img/icon.svg')}}" rel="icon">
-    <link href="{{asset('assets/img/icon.svg')}}" rel="apple-touch-icon">
+    <link href="{{asset('assets/img/imudu_icon.svg')}}" rel="icon">
+    <link href="{{asset('assets/img/imudu_icon.svg')}}" rel="apple-touch-icon">
 </head>
 <body class="sidebar-fixed">
     <div class="container-scroller">
@@ -56,12 +57,14 @@
     @include('components.modals')
     <!-- plugins:js -->
     <script src="{{asset('auth/vendors/js/vendor.bundle.base.js')}}"></script>
+    <script src="{{asset('auth/css/fontawesome/js/all.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="{{asset('auth/vendors/chart.js/Chart.min.js')}}"></script>
     <script src="{{asset('auth/vendors/datatables.net/jquery.dataTables.js')}}"></script>
     <script src="{{asset('auth/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
     <script src="{{asset('auth/js/dataTables.select.min.js')}}"></script>
+    <script src="{{asset('auth/js/file-upload.js')}}"></script>
 
     <!-- End plugin js for this page -->
     <!-- inject:js -->

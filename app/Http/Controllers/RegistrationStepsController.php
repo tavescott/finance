@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationStepsController extends Controller
 {
-    public function index()
+
+    public function clear(Request $request)
     {
-        return view('home');
+        $request->session()->forget('business');
+
+        return back();
     }
 
     public function stepOne(Request $request)

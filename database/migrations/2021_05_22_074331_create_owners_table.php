@@ -16,18 +16,20 @@ class CreateOwnersTable extends Migration
         Schema::create('owners', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('plan_id')->constrained();
             $table->string('first_name');
             $table->string('middle_name')->nullable();
             $table->string('last_name');
-            $table->string('gender');
-            $table->date('birth_date');
-            $table->integer('phone_number');
-            $table->string('p_ward_region');
-            $table->string('p_id_type');
-            $table->integer('p_id_no');
-            $table->string('p_id_document')->nullable();
+            $table->string('gender')->nullable();
+            $table->date('birth_date')->nullable();
+            $table->integer('phone_2')->nullable();
+            $table->string('email_2')->nullable();
+            $table->string('ward_region')->nullable();
+            $table->string('image_path')->nullable();
+            $table->foreignId('business_id')->nullable()->constrained();
 
             $table->index('user_id');
+            $table->index('plan_id');
             $table->timestamps();
         });
     }

@@ -23,8 +23,8 @@ class CreateItemsTable extends Migration
             $table->integer('mini_unit_price');
             $table->integer('mini_unit_in_unit');
             $table->integer('divisible_further');
-            $table->integer('unit_quantity');
-            $table->integer('mini_unit_quantity');
+            $table->integer('unit_quantity')->nullable();
+            $table->integer('mini_unit_quantity')->nullable();
 
             $table->index('business_id');
             $table->timestamps();

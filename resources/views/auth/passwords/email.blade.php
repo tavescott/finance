@@ -27,6 +27,11 @@
             <div class="mt-3">
                 <button class="btn btn-block btn-primary font-weight-medium auth-form-btn" type="submit">Tuma</button>
             </div>
+
+            <div class="d-flex justify-content-between mt-4 font-weight-light border-top border-secondary">
+                <a href="{{route('register')}}" class="text-primary mt-3">Jisajili</a>
+                <a href="{{route('login')}}" class="text-primary mt-3">Ingia</a>
+            </div>
         </form>
     </div>
 @endsection

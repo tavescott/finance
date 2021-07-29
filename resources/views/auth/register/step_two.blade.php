@@ -1,5 +1,9 @@
 @extends('layouts.auth.main')
 
+@section('title')
+    Jisajili
+@endsection
+
 @section('content')
     <!-- MultiStep Form -->
     <div class="body">

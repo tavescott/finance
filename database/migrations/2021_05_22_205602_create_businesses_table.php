@@ -18,16 +18,13 @@ class CreateBusinessesTable extends Migration
             $table->string('name');
             $table->foreignId('owner_id')->constrained();
             $table->foreignId('category_id')->constrained();
-            $table->string('product_type');
-            $table->foreignId('plan_id')->constrained();
-            $table->string('ward_region');
-            $table->text('b_id_type');
-            $table->integer('b_id_no');
-            $table->string('b_id_document')->nullable();
-            $table->integer('is_verified')->default(0);
+            $table->string('sales_type');
+            $table->string('record_type');
+            $table->integer('stock_taking')->nullable()->default(0);
+            $table->string('credit_allowed');
+            $table->string('ward_region')->nullable();
 
             $table->index('category_id');
-            $table->index('plan_id');
             $table->index('owner_id');
             $table->timestamps();
         });

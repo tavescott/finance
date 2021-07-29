@@ -14,7 +14,7 @@ return [
     */
 
     'failed' => 'Umekosea Barua Pepe au Neno la siri',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'password' => 'Umekosea neno la siri',
+    'throttle' => 'Umejaribu kuingia mara nyingi.Jaribu tena baada ya sekunde :seconds',
 
 ];

@@ -6,14 +6,14 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
         <title>
-            @yield('title') | Jimudu
+            @yield('title') | Imudu
         </title>
-        <meta content="Jimudu ni mfumo wa kutunza taarifa za biashara yako, pamoja na kutoa ripoti kutokana na mahitaji." name="description">
-        <meta content="Jimudu, Bishara" name="keywords">
+        <meta content="Imudu ni mfumo wa kutunza taarifa za biashara yako, pamoja na kutoa ripoti kutokana na mahitaji." name="description">
+        <meta content="Imudu, Bishara" name="keywords">
 
         <!-- Favicons -->
-        <link href="{{asset('assets/img/icon.svg')}}" rel="icon">
-        <link href="{{asset('assets/img/icon.svg')}}" rel="apple-touch-icon">
+        <link href="{{asset('assets/img/imudu_icon.svg')}}" rel="icon">
+        <link href="{{asset('assets/img/imudu_icon.svg')}}" rel="apple-touch-icon">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -43,7 +43,7 @@
         <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center">
 
-              <a href="#" class="logo mr-auto"><img src="{{asset('assets/img/logo2.svg')}}" alt="" class="img-fluid" width="100px"></a>
+              <a href="#" class="logo mr-auto"><img src="{{asset('assets/img/imudu.svg')}}" alt="" class="img-fluid" width="100px"></a>
 
                 <nav class="nav-menu d-none d-lg-block">
                     <ul>
@@ -56,9 +56,19 @@
                 </nav><!-- .nav-menu -->
 
                     @auth
-                        <a href="{{route('home')}}" class="get-started-btn scrollto">
-                           Dashbodi
-                        </a>
+                        @if(auth()->user()->role_id == 1)
+                            <a href="{{route('admin.index')}}" class="get-started-btn scrollto">
+                                Dashbodi
+                            </a>
+                        @elseif(auth()->user()->role_id == 2)
+                            <a href="{{route('owner.businesses.index')}}" class="get-started-btn scrollto">
+                                Dashbodi
+                            </a>
+                        @elseif(auth()->user()->role_id == 3)
+                            <a href="{{route('home')}}" class="get-started-btn scrollto">
+                                Dashbodi
+                            </a>
+                        @endif
                       @else
                         <a href="{{route('login')}}" class="get-started-btn scrollto">
                             Ingia

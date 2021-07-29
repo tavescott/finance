@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>@yield('title') | Jimudu </title>
+    <title>@yield('title') | Imudu </title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('auth/vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{asset('auth/vendors/ti-icons/css/themify-icons.css')}}">
@@ -16,7 +16,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('auth/css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
-    <link rel="shortcut icon" href="{{asset('assets/img/icon.svg')}}" />
+    <link rel="shortcut icon" href="{{asset('assets/img/imudu_icon.svg')}}" />
 </head>
 
 <body >
@@ -27,9 +27,10 @@
                 <div class="col-lg-4 mx-auto">
                     <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                         <div class="brand-logo d-flex justify-content-center">
-                            <img src="{{asset('assets/img/logo.svg')}}" alt="logo">
+                            <img src="{{asset('assets/img/imudu.svg')}}" alt="logo">
                         </div>
-                            @yield('content')
+                        @include('layouts.dashboard.alerts')
+                        @yield('content')
                     </div>
                 </div>
             </div>

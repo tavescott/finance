@@ -31,8 +31,8 @@
         @if (count($errors) > 0)
             <div class="alerts  alert alert-danger alert-dismissible fade show" role="alert">
                 <div class="many">
-                    <strong>Kosa!</strong> Kuna kasoro kwenye fomu yako! Tafadhali angalia vizuri kisha urekebishe.
-                    <ul style="list-style: none">
+                    <strong>Kasoro!</strong> Tafadhali angalia vizuri kisha urekebishe fomu yako.
+                    <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach

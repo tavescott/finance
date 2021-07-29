@@ -31,7 +31,7 @@
         </div>
         @if (Route::has('password.request'))
             <div class="my-2 d-flex justify-content-end align-items-center">
-                <a href="{{ route('password.request') }}" class="auth-link text-black">Umesahau neno la siri?</a>
+                Umesahau neno la siri? <a href="{{ route('password.request') }}" class="text-primary pl-1"> Badili</a>
             </div>
         @endif
 

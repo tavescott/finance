@@ -28567,6 +28567,7 @@ div.tagsinput span.tag a {
   font-size: 0.875rem;
   line-height: 1;
   vertical-align: middle;
+    padding-left: 20px;
 }
 
 .sidebar .nav .nav-item .nav-link .badge {

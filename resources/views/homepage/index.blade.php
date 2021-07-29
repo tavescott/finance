@@ -11,7 +11,7 @@
         <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <div class="row justify-content-center">
                 <div class="col-xl-7 col-lg-9 text-center">
-                    <h1>Simamia shughili zako za kifedha</h1>
+                    <h1>Simamia shughuli zako za kifedha</h1>
                     <h2>Kiurahisi na kiufanisi.</h2>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                                 <li>Huduma kwa wateja 24/7</li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="{{route('stepOnePlan', 1)}}" class="btn-buy">Chagua</a>
+                                <a href="{{route('register')}}" class="btn-buy">Chagua</a>
                             </div>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                                 <li><b>Ripoti Bure</b></li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="{{route('stepOnePlan', 2)}}" class="btn-buy">Chagua</a>
+                                <a href="{{route('register')}}" class="btn-buy">Chagua</a>
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                                 <li><b>Ushauri wa wataalam</b></li>
                             </ul>
                             <div class="btn-wrap">
-                                <a href="{{route('stepOnePlan', 3)}}" class="btn-buy">Chagua</a>
+                                <a href="{{route('register')}}" class="btn-buy">Chagua</a>
                             </div>
                         </div>
                     </div>
@@ -141,62 +141,19 @@
 
                 <div class="owl-carousel testimonials-carousel">
 
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                        <h3>Saul Goodman</h3>
-                        <h4>Ceo &amp; Founder</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                        <h3>Sara Wilsson</h3>
-                        <h4>Designer</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                        <h3>Jena Karlis</h3>
-                        <h4>Store Owner</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                        <h3>Matt Brandon</h3>
-                        <h4>Freelancer</h4>
-                    </div>
-
-                    <div class="testimonial-item">
-                        <p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                        <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                        <h3>John Larson</h3>
-                        <h4>Entrepreneur</h4>
-                    </div>
-
-
+                    @forelse($testimonials as $testimonial)
+                        <div class="testimonial-item">
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                {{$testimonial->content}}
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                            <h3>{{$testimonial->owner->first_name . " " . $testimonial->owner->last_name}}</h3>
+                            <h4>{{$testimonial->business->name}}</h4>
+                        </div>
+                    @empty
+                    @endforelse
 
                 </div>
 

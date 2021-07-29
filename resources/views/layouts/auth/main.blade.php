@@ -5,13 +5,13 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>OnePage Bootstrap Template - Index</title>
+        <title>@yield('title') | Imudu </title>
         <meta content="" name="description">
         <meta content="" name="keywords">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
         <!-- Favicons -->
-        <link href="{{asset('auth/assets/img/icon.svg')}}" rel="icon">
-        <link href="{{asset('auth/assets/img/icon.svg')}}" rel="apple-touch-icon">
+        <link href="{{asset('auth/assets/img/imudu_icon.svg')}}" rel="icon">
+        <link href="{{asset('auth/assets/img/imudu_icon.svg')}}" rel="apple-touch-icon">
 
         <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     <body>
         <div class="image">
-            <img src="{{asset('auth/assets/img/white.svg')}}" width="200px"  alt="" class="p-3 mt-4">
+            <img src="{{asset('auth/assets/img/imudu.svg')}}" width="200px"  alt="" class="p-3 mt-4">
         </div>
         <main id="main ">
             <div class="header">
