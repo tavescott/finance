@@ -19,11 +19,9 @@ class CreateSalesTable extends Migration
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->date('date')->nullable();
             $table->string('customer')->nullable();
-            $table->string('payment_type');
             $table->integer('unit_quantity')->nullable()->default(0);
             $table->integer('mini_unit_quantity')->nullable()->default(0);
             $table->integer('cash_amount')->nullable()->default(0);
-            $table->integer('credit_amount')->nullable()->default(0);
             $table->timestamps();
         });
     }

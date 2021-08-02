@@ -8,14 +8,14 @@
 
     <li class="nav-item">
         <a class="nav-link"  href="{{route('owner.purchases.index')}}" >
-            <i class="shopping-cart menu-icon"></i>
+            <i class="ri-shopping-cart-2-line menu-icon"></i>
             <span class="menu-title">Manunuzi</span>
         </a>
     </li>
 
     <li class="nav-item">
         <a class="nav-link" href="{{route('owner.sales.index')}}">
-            <i class="ri-money-dollar-circle-fill menu-icon"></i>
+            <i class="ri-price-tag-3-line menu-icon"></i>
             <span class="menu-title">Mauzo</span>
         </a>
     </li>

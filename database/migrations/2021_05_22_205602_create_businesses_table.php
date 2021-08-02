@@ -21,7 +21,6 @@ class CreateBusinessesTable extends Migration
             $table->string('sales_type');
             $table->string('record_type');
             $table->integer('stock_taking')->nullable()->default(0);
-            $table->string('credit_allowed');
             $table->string('ward_region')->nullable();
 
             $table->index('category_id');

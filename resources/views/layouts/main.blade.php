@@ -88,7 +88,7 @@
                     <div class="row">
 
                         <div class="col-lg-3 col-md-6 footer-contact">
-                            <img src="{{asset('assets/img/logo.svg')}}" alt="" width="150">
+                            <img src="{{asset('assets/img/imudu.svg')}}" alt="" width="150">
                             <p class="mt-3">
                                 Mtaa wa Lindi <br>
                                 Moshi, Kilimanjaro<br>

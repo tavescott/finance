@@ -61,21 +61,6 @@
                             </ul>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row d-flex align-items-center justify-content-center mt-3 ">
-                        <div class="col-md-4 text-center">
-                            <p class="text-muted">Aina ya kitambulisho</p>
-                            <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->id_type ?? " - "}}</h3>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <p class="text-muted">Namba ya kitambulisho</p>
-                            <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->id_number ?? " - "}}</h3>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <p class="text-muted">Kitambulisho</p>
-                            <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->middle_name ?? " - "}}</h3>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

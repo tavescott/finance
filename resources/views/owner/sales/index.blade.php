@@ -30,7 +30,6 @@
                             <th>Mnunuzi</th>
                             <th>Idadi</th>
                             <th>Jumla kuu(TZS)</th>
-                            <th>Vitendo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,7 +40,6 @@
                                <td>{{$sales->customer}}</td>
                                <td>{{$sales->item->unit->name.": ".$sales->unit_quantity}} {{$sales->item->mini_unit->name.": ".$sales->mini_unit_quantity}}</td>
                                <td>{{number_format($sales->cash_amount + $sales->credit_amount)}}</td>
-                               <td><a href="" class="btn btn-info">ona</a></td>
                            </tr>
                        @empty
                            <tr>

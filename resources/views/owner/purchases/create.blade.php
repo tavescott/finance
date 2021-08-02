@@ -55,20 +55,7 @@
                             </span>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="item_id">Njia ya malipo</label>
-                            <select class="form-control @error('payment_type') is-invalid @enderror" id="payment_type" name="payment_type">
-                                <option selected disabled>...</option>
-                                <option value="Cash" @if(old('payment_type') == 'Cash') selected @endif>Fedha taslim</option>
-                                <option value="Credit" @if(old('payment_type') == 'Credit') selected @endif>Mkopo</option>
-                                <option value="Both" @if(old('payment_type') == 'Both') selected @endif>Fedha na Mkopo</option>
-                            </select>
-                            @error('payment_type')
-                            <span class="invalid-feedback" role="alert">
-                               <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
+
                         <div class="form-group">
                             <div class="row">
 
@@ -124,32 +111,25 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="quantity" class="font-weight-bold">Bei <small><i>(TZS)</i></small></label>
+                                    <label for="quantity" class="font-weight-bold">Bei </label>
                                     <div class="input-group">
-                                        <div class="input-group-prepend" id="cash">
-                                            <span class="input-group-text" >Taslim</span>
-                                        </div>
-                                        <input type="number" class="form-control @error('cash_amount') is-invalid @enderror" id="cash_amount" name="cash_amount" value="{{old('cash_amount')}}">
-                                        <div class="input-group-prepend" id="credit">
-                                            <span class="input-group-text" >Mkopo</span>
-                                        </div>
-                                        <input type="number" class="form-control @error('credit_amount') is-invalid @enderror" id="credit_amount" name="credit_amount" value="{{old('credit_amount')}}">
+
+                                    <input type="number" class="form-control @error('cash_amount') is-invalid @enderror" id="cash_amount" name="cash_amount" value="{{old('cash_amount')}}">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Tzs</span>
+                                    </div>
                                     </div>
                                     @error('cash_amount')
                                     <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                      </span>
                                     @enderror
-                                    @error('credit_amount')
-                                    <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                     </span>
-                                    @enderror
+
                                 </div>
 
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary mr-2">Hifadhi bidhaa</button>
+                        <button type="submit" class="btn btn-primary mr-2">Hifadhi manunuzi</button>
                     </form>
                 </div>
             </div>
@@ -182,30 +162,6 @@
 
                         }
                     })
-                }
-            });
-            $('#payment_type').change(function () {
-                var value = $(this).val()
-                if (value != '') {
-                    if (value === 'Cash') {
-                        $('#credit').addClass('d-none');
-                        $('#credit_amount').addClass('d-none');
-                        $('#customer').removeAttr('required');
-                        $('#cash').removeClass('d-none');
-                        $('#cash_amount').removeClass('d-none');
-                    } else if (value === 'Credit') {
-                        $('#cash').addClass('d-none');
-                        $('#cash_amount').addClass('d-none');
-                        $('#customer').attr('required', 'true');
-                        $('#credit').removeClass('d-none');
-                        $('#credit_amount').removeClass('d-none');
-                    } else if (value === 'Both') {
-                        $('#cash').removeClass('d-none');
-                        $('#cash_amount').removeClass('d-none');
-                        $('#customer').attr('required', 'true');
-                        $('#credit').removeClass('d-none');
-                        $('#credit_amount').removeClass('d-none');
-                    }
                 }
             });
             $('#date').change(function () {

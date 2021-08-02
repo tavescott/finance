@@ -12,12 +12,7 @@ use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
 {
-    public function business()
-    {
-        $owner = Owner::where('user_id', auth()->id())->first();
-        return Business::where('owner_id', $owner->id)->first();
 
-    }
 
     public function index(Request $request)
     {
@@ -62,20 +57,16 @@ class PurchaseController extends Controller
                 'item_id' => 'required',
                 'date' => '',
                 'supplier' => 'required',
-                'payment_type' => 'required',
                 'unit_quantity' => 'required_without:mini_unit_quantity',
                 'mini_unit_quantity' => 'required_without:unit_quantity',
-                'cash_amount' => 'required_without:credit_amount',
-                'credit_amount' => 'required_without:cash_amount',
+                'cash_amount' => 'required',
             ],
             [
                 'item_id.required' => 'Bidhaa inahitajika',
                 'supplier.required' => 'Tafadhali andika muuzaji',
-                'payment_type.required' => 'Tafadhali chagua njia ya malipo',
                 'unit_quantity.required_without' => 'Tafadhali jaza idadi',
                 'mini_unit_quantity.required_without' => 'Tafadhali jaza idadi',
-                'cash_amount.required_without' => 'Tafadhali jaza bei',
-                'credit_amount.required_without' => 'Tafadhali jaza bei',
+                'cash_amount' => 'Tafadhali jaza bei',
             ]
         );
         $this->business()->purchases()->create($data);

@@ -45,25 +45,25 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-baseline">
                                 <p class="card-title">Taarifa za biashara</p>
-                                <a href="{{route('owner.businesses.edit', session()->get('business')->id)}}" class="btn btn-sm btn-outline-primary">Hariri</a>
+                                <a href="{{route('owner.businesses.edit', $business->id)}}" class="btn btn-sm btn-outline-primary">Hariri</a>
                             </div>
                             <hr>
                             <div class="row  d-flex align-items-center justify-content-center flex-column">
                                 <p class="text-muted">Jina la biashara</p>
-                                <h3 class="text-primary fs-20 font-weight-medium">{{session()->get('business')->name}}</h3>
+                                <h3 class="text-primary fs-20 font-weight-medium">{{$business->name}}</h3>
                             </div>
                             <hr>
                             <div class="row d-flex align-items-center justify-content-center mt-3 ">
                                 <div class="col-md-4 text-center">
                                     <p class="text-muted">Kundi</p>
-                                    <h3 class="text-primary fs-20 font-weight-medium">{{session()->get('business')->category->name}}</h3>
+                                    <h3 class="text-primary fs-20 font-weight-medium">{{$business->category->name}}</h3>
                                 </div>
                                 <div class="col-md-4 text-center">
                                     <p class="text-muted">Aina ya mauzo</p>
                                     <h3 class="text-primary fs-20 font-weight-medium">
-                                        @if(session()->get('business')->sales_type == "Services")
+                                        @if($business->sales_type == "Services")
                                             Huduma Pekee
-                                        @elseif(session()->get('business')->sales_type == "Items")
+                                        @elseif($business->sales_type == "Items")
                                             Bidhaa Pekee
                                         @else
                                             Bidhaa na huduma
@@ -73,7 +73,7 @@
                                 <div class="col-md-4 text-center">
                                     <p class="text-muted">Aina ya rekodi</p>
                                     <h3 class="text-primary fs-20 font-weight-medium">
-                                        @if(session()->get('business')->record_type == "Each")
+                                        @if($business->record_type == "Each")
                                             Kila bidhaa
                                         @else
                                             Jumla pekee
@@ -84,18 +84,8 @@
                             <hr>
                             <div class="row d-flex align-items-center justify-content-center mt-3 ">
                                 <div class="col-md-4 text-center">
-                                    <p class="text-muted">Mikopo</p>
-                                    <h3 class="text-primary fs-20 font-weight-medium">
-                                        @if(session()->get('business')->credit_allowed == "Yes")
-                                            Inaruhusiwa
-                                        @else
-                                            Hairuhusiwi
-                                        @endif
-                                    </h3>
-                                </div>
-                                <div class="col-md-4 text-center">
                                     <p class="text-muted">Kata - Mkoa </p>
-                                    <h3 class="text-primary fs-20 font-weight-medium">{{session()->get('business')->ward_region ?? '-'}}</h3>
+                                    <h3 class="text-primary fs-20 font-weight-medium">{{$business->ward_region ?? '-'}}</h3>
                                 </div>
                             </div>
                             <hr>

@@ -15,7 +15,7 @@ class BusinessSeeder extends Seeder
     public function run()
     {
         $businesses = [
-            ['name' => 'Business One', 'owner_id' => 1, 'category_id' => 1, 'sales_type' => 'Items', 'record_type' => 'Each', 'stock_taking' => 1, 'credit_allowed' => 'No'],
+            ['name' => 'Business One', 'owner_id' => 1, 'category_id' => 1, 'sales_type' => 'Items', 'record_type' => 'Each', 'stock_taking' => 1],
         ];
         foreach ($businesses as $business){
             Business::updateOrCreate(['name' => $business['name']], $business);

@@ -43,7 +43,7 @@ class ReportController extends Controller
         $totalCashExpenses = $expenses->sum('amount');
 
         $sum = $totalCashSales - ($totalCashPurchases + $totalCashExpenses);
-        $state = '';
+
         if($sum > 0){
             $state = "Profit";
         }
@@ -53,6 +53,7 @@ class ReportController extends Controller
         else{
             $state = "Neutral";
         }
+
         return $transactions = [
             'date' => date('d/m/Y', strtotime($date)),
             'business' => $business,

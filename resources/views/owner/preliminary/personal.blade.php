@@ -50,16 +50,6 @@
              @enderror
          </div>
 
-         <div class="form-group">
-             <label for="Business Name">Barua Pepe: <sup class="text-danger">*</sup></label>
-             <input type="text" class="form-control" value="{{auth()->user()->email}}" disabled>
-         </div>
-
-         <div class="form-group">
-             <label for="Business Name">Namba ya simu: <sup class="text-danger">*</sup></label>
-             <input type="text" class="form-control" value="0{{auth()->user()->phone}}" disabled>
-         </div>
-
          <div class="mt-3">
              <button class="btn btn-block btn-primary font-weight-medium auth-form-btn" type="submit">Hifadhi</button>
          </div>

@@ -50,7 +50,6 @@ class PreliminaryController extends Controller
             'sales_type' => 'required',
             'record_type' => 'required',
             'stock_taking' => 'required_if:record_type,Each',
-            'credit_allowed' => 'required',
         ],
         [
             'name.required' => 'Jina la biashara latakiwa',
@@ -58,7 +57,6 @@ class PreliminaryController extends Controller
             'sales_type.required' => 'Tafadhali chagua aina ya mauzo',
             'record_type.required' => 'Tafadhali chagua aina ya rekodi',
             'stock_taking.required_if' => 'Tafadhali chagua kama unahitaji kurekodi bidhaa zilizopo kwa sasa',
-            'credit_allowed.required' => 'Tafadhali chagua kama unaruhusu mikopo',
         ]);
 
         $owner = Owner::where('user_id', auth()->id())->first();

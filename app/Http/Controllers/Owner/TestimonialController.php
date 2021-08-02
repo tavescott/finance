@@ -22,6 +22,10 @@ class TestimonialController extends Controller
             'business_id' => '',
             'stars' => 'required',
             'content' => 'required'
+        ],
+        [
+            'stars.required' => 'Tafadhali chagua nyota',
+            'content.required' => 'Tafadhali tuandikie chochote',
         ]);
 
         $owner->testimonials()->create($data);

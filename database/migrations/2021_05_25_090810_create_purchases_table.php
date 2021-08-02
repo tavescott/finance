@@ -19,11 +19,9 @@ class CreatePurchasesTable extends Migration
             $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->string('supplier');
             $table->date('date')->nullable();
-            $table->string('payment_type');
             $table->integer('unit_quantity')->nullable()->default(0);
             $table->integer('mini_unit_quantity')->nullable()->default(0);
             $table->integer('cash_amount')->nullable()->default(0);
-            $table->integer('credit_amount')->nullable()->default(0);
             $table->timestamps();
         });
     }

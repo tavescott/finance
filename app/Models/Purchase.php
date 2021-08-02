@@ -18,7 +18,6 @@ class Purchase extends Model
         'unit_quantity',
         'mini_unit_quantity',
         'cash_amount',
-        'credit_amount',
     ];
 
     public function business()

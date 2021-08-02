@@ -28,9 +28,10 @@ class SaleController extends Controller
         $bigUnits = Unit::where('level', 1)->get();
         $smallUnits = Unit::where('level', 2)->get();
         $miniUnits = Unit::where('level', 3)->get();
-        $items = Item::where('business_id', $this->business()->id)->get();
+        $micro_units = Unit::where('level', 3)->get();
 
-        return view('owner.sales.create', compact('items', 'bigUnits', 'smallUnits', 'miniUnits'));
+        $items = Item::where('business_id', $this->business()->id)->get();
+        return view('owner.sales.create', compact('items', 'bigUnits', 'smallUnits', 'miniUnits', 'micro_units'));
     }
 
     public function show_item($id)
@@ -56,22 +57,19 @@ class SaleController extends Controller
                 'item_id' => 'required',
                 'customer' => '',
                 'date' => '',
-                'payment_type' => 'required',
                 'unit_quantity' => 'required_without:mini_unit_quantity',
                 'mini_unit_quantity' => 'required_without:unit_quantity',
-                'cash_amount' => 'required_without:credit_amount',
-                'credit_amount' => 'required_without:cash_amount',
+                'cash_amount' => 'required_without',
             ],
             [
                 'item_id.required' => 'Bidhaa inahitajika',
                 'customer.required' => 'Tafadhali andika mnunuaji',
-                'payment_type.required' => 'Tafadhali chagua njia ya malipo',
                 'unit_quantity.required_without' => 'Tafadhali jaza idadi',
                 'mini_unit_quantity.required_without' => 'Tafadhali jaza idadi',
-                'cash_amount.required_without' => 'Tafadhali jaza bei',
-                'credit_amount.required_without' => 'Tafadhali jaza bei',
+                'cash_amount' => 'Tafadhali jaza bei',
             ]
         );
+
         $this->business()->sales()->create($data);
 
         return redirect()->route('owner.sales.index')->with('success', 'Mauzo yamerekodiwa

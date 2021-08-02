@@ -23,11 +23,8 @@ class StoreProfileRequest extends FormRequest
             'ward_region' => 'required',
             'email' => 'required|email',
             'email_2' => '',
-            'phone' => 'required|max:10|min:10',
+            'phone' => 'required|max:9|min:9',
             'phone_2' => '',
-            'id_type' => 'required',
-            'id_number' => 'required',
-            'id_document_path' => '',
             'image_path' => '',
         ];
     }
@@ -46,10 +43,8 @@ class StoreProfileRequest extends FormRequest
             'ward_region.required' => 'Kata - Mkoa yatakiwa',
             'email.required' => 'Barua pepe yatakiwa',
             'phone.required' => 'Namba ya simu yatakiwa',
-            'phone.max' => 'Namba ya simu sio sahihi. Mfano: 0742529173',
-            'phone.min' => 'Namba ya simu sio sahihi. Mfano: 0742529173',
-            'id_type.required' => 'Tafadhali chagua Aina ya kitambulisho',
-            'id_number.required' => 'Tafadhali ingiza namba ya kitambulisho',
+            'phone.max' => 'Namba ya simu sio sahihi. Mfano: 742529173',
+            'phone.min' => 'Namba ya simu sio sahihi. Mfano: 742529173',
         ];
     }
 }

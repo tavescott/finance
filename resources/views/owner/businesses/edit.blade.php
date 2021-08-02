@@ -1,10 +1,37 @@
-@extends('layouts.dashboard.main')
-@section('title')
-    Hariri taarifa za biashara
-@endsection
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-    <div class="row">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hariri biashara - Imudu</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{asset('auth/vendors/feather/feather.css')}}">
+    <link rel="stylesheet" href="{{asset('auth/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('auth/vendors/css/vendor.bundle.base.css')}}">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="{{asset('auth/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
+    <link rel="stylesheet" href="{{asset('auth/vendors/ti-icons/css/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('auth/js/select.dataTables.min.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{{asset('auth/css/vertical-layout-light/style.css')}}">
+    <!-- endinject -->
+    <!-- Favicons -->
+    <link href="{{asset('assets/img/imudu_icon.svg')}}" rel="icon">
+    <link href="{{asset('assets/img/imudu_icon.svg')}}" rel="apple-touch-icon">
+</head>
+<body>
+<div class="container-scroller">
+    @include('layouts.dashboard.navbar')
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2 mb-4 mb-xl-0 ">
+            @include('layouts.dashboard.alerts')
+            <div class="row mt-5">
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -13,7 +40,7 @@
                         @csrf
                         @method('PATCH')
                        <div class="row">
-                           <div class="form-group col-md-6">
+                           <div class="form-group col-md-12">
                                <label for="Name">Jina la biashara</label>
                                <input type="text" class="form-control @error(old('name')) is-invalid @enderror" name="name" value="{{old('name') ?? $business->name ?? ''}}" id="name">
                                @error('name')
@@ -22,70 +49,7 @@
                                 </span>
                                @enderror
                            </div>
-
-                           <div class="form-group col-md-6">
-                               <label for="Credit allowed">Huwa unauza/kununua kwa mkopo?</label> <br>
-                               <div class="ml-4">
-                                   <div class="form-check">
-                                       <input class="form-check-input " type="radio" name="credit_allowed" id="credit_allowed" value="Yes" @if(old('credit_allowed') == "Yes" || $business->credit_allowed == "Yes") checked @endif>
-                                       <label class="form-check-label" for="credit_allowed">
-                                           Ndio
-                                       </label>
-                                   </div>
-                                   <div class="form-check">
-                                       <input class="form-check-input" type="radio" name="credit_allowed" id="credit_allowed" value="No" @if(old('credit_allowed') == "No" || $business->credit_allowed == "No") checked @endif>
-                                       <label class="form-check-label" for="credit_allowed">
-                                           Hapana
-                                       </label>
-                                   </div>
-                               </div>
-                               @error('credit_allowed')
-                               <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                               @enderror
-                           </div>
                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-4">
-                                <label for="Id type">Aina ya kitambulisho</label>
-                                <select class="form-control" style="@error('id_type') border: 1px solid red; @enderror"   name="id_type" id="id_type">
-                                    <option @if($business->id_type == "") selected @endif disabled>Chagua</option>
-                                    <option value="License" @if(($business->id_type == "License")) @elseif (old('id_type') == "License") selected @endif>Lesseni ya biashara </option>
-                                    <option value="Entrepreneur" @if(($business->id_type == "Entrepreneur")) @elseif (old('id_type') == "Entrepreneur") selected @endif>Wajasiriamali wadogo</option>
-                                    <option value="TIN" @if(($business->id_type == "TIN")) @elseif (old('id_type') == "TIN") selected @endif>TIN namba ya biashara</option>
-                                </select>
-                                @error('id_type')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="ID Number">Namba ya kitambulisho</label>
-                                <input type="text" class="form-control @error(old('id_number')) is-invalid @enderror" name="id_number" value="{{old('id_number') ?? $owner->id_number ?? ''}}" id="id_number">
-                                @error('id_number')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label>Kitambulisho</label>
-                                <input type="file" name="id_document_path" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Pakia Kitambulisho">
-                                    <span class="input-group-append">
-                                  <button class="file-upload-browse btn btn-primary" type="button">Pakia</button>
-                                </span>
-                                </div>
-                                @error('id_document_path')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
 
                         <button type="submit" class="btn btn-primary mr-2">Hifadhi</button>
                     </form>
@@ -93,4 +57,45 @@
             </div>
         </div>
     </div>
-@endsection
+        </div>
+
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{asset('auth/vendors/js/vendor.bundle.base.js')}}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{asset('auth/vendors/chart.js/Chart.min.js')}}"></script>
+    <script src="{{asset('auth/vendors/datatables.net/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('auth/vendors/datatables.net-bs4/dataTables.bootstrap4.js')}}"></script>
+    <script src="{{asset('auth/js/dataTables.select.min.js')}}"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{asset('auth/js/off-canvas.js')}}"></script>
+    <script src="{{asset('auth/js/hoverable-collapse.js')}}"></script>
+    <script src="{{asset('auth/js/template.js')}}"></script>
+    <script src="{{asset('auth/js/settings.js')}}"></script>
+    <script src="{{asset('auth/js/todolist.js')}}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{{asset('auth/js/dashboard.js')}}"></script>
+    <script src="{{asset('auth/js/tooltips.js')}}"></script>
+    <script src="{{asset('auth/js/Chart.roundedBarCharts.js')}}"></script>
+    <script>
+        $('[data-bs-toggle="tooltip"]').tooltip();
+    </script>
+    <script>
+
+        document.getElementById('record_type').addEventListener('change', showMedform)
+        function showMedform(){
+            if(document.getElementById('record_type').value === "Each"){
+                document.getElementById('stock').className = "form-group d-block"
+            }else{
+                document.getElementById('stock').className = "form-group d-none"
+                document.getElementById('stock').value = ""
+            }
+        }
+    </script>
+    <!-- End custom js for this page-->
+</body>

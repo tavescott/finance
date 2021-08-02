@@ -46,36 +46,10 @@ class ProfileController extends Controller
         $owner->ward_region = $data['ward_region'];
         $owner->email_2 = $data['email_2'];
         $owner->phone_2 = $data['phone_2'];
-        $owner->id_type = $data['id_type'];
-        $owner->id_type = $data['id_type'];
-        $owner->id_number = $data['id_number'];
 
         $user->email = $data['email'];
         $user->phone = $data['phone'];
 
-        if ($request->hasFile('id_document_path')){
-            $filename = $data['first_name'].'-'.$data['last_name'].'-('.$data['id_type'].'-ID).'.$request->id_document_path->getClientOriginalExtension();
-            $request->id_document_path->move(public_path('Images/Owners/IDs/'), $filename);
-            $id_path = 'Images/Owner/IDs/'.$filename;
-
-            $old_path = $owner->id_document_path;
-
-            $owner->id_document_path = $id_path;
-
-            Storage::delete($old_path);
-        }
-
-        if ($request->hasFile('image_path')){
-            $filename = $data['first_name'].'-'.$data['last_name'].'-(profile_image)-'.rand(1000000, 9999999).'.'.$request->image_path->getClientOriginalExtension();
-            $request->image_path->move(public_path('Images/Owners/Images/'), $filename);
-            $image_path = 'Images/Owner/Images/'.$filename;
-
-            $old_path = $owner->image_path;
-
-            $owner->image_path = $image_path;
-
-            Storage::delete($old_path);
-        }
         DB::transaction(function () use ($owner, $user) {
             $user->save();
             $owner->save();

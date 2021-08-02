@@ -95,7 +95,12 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="Last Name">Namba ya simu</label>
-                                <input type="number" class="form-control @error(old('phone')) is-invalid @enderror" name="phone" value="0{{old('phone') ?? auth()->user()->phone ?? ''}}" id="phone">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" >+255</span>
+                                    </div>
+                                    <input type="number" class="form-control @error(old('phone')) is-invalid @enderror" name="phone" value="{{old('phone') ?? auth()->user()->phone ?? ''}}" id="phone">
+                                </div>
                                 @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                    <strong>{{ $message }}</strong>
@@ -104,72 +109,18 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="Last Name">Namba ya simu <sup>2</sup></label>
-                                <input type="number" class="form-control @error(old('phone_2')) is-invalid @enderror" name="phone_2" value="0{{old('phone_2') ?? $owner->phone_2 ?? ''}}" id="phone_2">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" >+255</span>
+                                    </div>
+                                    <input type="number" class="form-control @error(old('phone_2')) is-invalid @enderror" name="phone_2" value="{{old('phone_2') ?? $owner->phone_2 ?? ''}}" id="phone_2">
+                                </div>
                                 @error('phone_2')
                                 <span class="invalid-feedback" role="alert">
                                    <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-md-3">
-                                <label for="Id type">Aina ya kitambulisho</label>
-                                <select class="form-control" style="@error('id_type') border: 1px solid red; @enderror"   name="id_type" id="id_type">
-                                    <option @if($owner->id_type == "") selected @endif disabled>Chagua</option>
-                                    <option value="NIDA" @if(($owner->id_type == "NIDA")) @elseif (old('id_type') == "NIDA") selected @endif>Kitambulisho cha taifa (NIDA) </option>
-                                    <option value="Voters" @if(($owner->id_type == "Voters")) @elseif (old('id_type') == "Voters") selected @endif>Kitambulisho cha mpiga kura</option>
-                                    <option value="Driving" @if(($owner->id_type == "Driving")) @elseif (old('id_type') == "Driving") selected @endif>Lesseni ya udereva</option>
-                                    <option value="TIN" @if(($owner->id_type == "TIN")) @elseif (old('id_type') == "TIN") selected @endif>TIN namba binafsi</option>
-                                    <option value="Passport" @if(($owner->id_type == "Passport")) @elseif (old('id_type') == "Passport") selected @endif>Hati ya kusafiria</option>
-                                </select>
-                                @error('id_type')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="ID Number">Namba ya kitambulisho <sup>2</sup></label>
-                                <input type="text" class="form-control @error(old('id_number')) is-invalid @enderror" name="id_number" value="{{old('id_number') ?? $owner->id_number ?? ''}}" id="id_number">
-                                @error('id_number')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label>Kitambulisho</label>
-                                <input type="file" name="id_document_path" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Pakia Kitambulisho">
-                                    <span class="input-group-append">
-                                  <button class="file-upload-browse btn btn-primary" type="button">Pakia</button>
-                                </span>
-                                </div>
-                                @error('id_document_path')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label>Picha</label>
-                                <input type="file" name="image_path" class="file-upload-default">
-                                <div class="input-group col-xs-12">
-                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Pakia picha">
-                                    <span class="input-group-append">
-                                  <button class="file-upload-browse btn btn-primary" type="button">Pakia</button>
-                                </span>
-                                </div>
-                                @error('id_document_path')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Hifadhi</button>
                     </form>

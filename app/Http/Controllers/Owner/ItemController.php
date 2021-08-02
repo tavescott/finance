@@ -30,7 +30,7 @@ class ItemController extends Controller
     public function store(Request $request)
     {
         $owner = Owner::where('user_id', auth()->id())->first();
-        $business = Business::where('owner_id', $owner->id)->first();
+        $business = $this->business();
         $data = $request->validate([
             'name' => 'required|string',
             'unit_id' => 'required',

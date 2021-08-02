@@ -26,7 +26,6 @@ class CreateOwnersTable extends Migration
             $table->string('email_2')->nullable();
             $table->string('ward_region')->nullable();
             $table->string('image_path')->nullable();
-            $table->foreignId('business_id')->nullable()->constrained();
 
             $table->index('user_id');
             $table->index('plan_id');

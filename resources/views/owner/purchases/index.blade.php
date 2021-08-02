@@ -30,7 +30,6 @@
                             <th>Muuzaji</th>
                             <th>Idadi</th>
                             <th>Jumla kuu(TZS)</th>
-                            <th>Vitendo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -41,7 +40,6 @@
                                <td>{{$purchase->supplier}}</td>
                                <td>{{$purchase->item->unit->name.": ".$purchase->unit_quantity}} {{$purchase->item->mini_unit->name.": ".$purchase->mini_unit_quantity}}</td>
                                <td>{{number_format($purchase->cash_amount + $purchase->credit_amount)}}</td>
-                               <td><a href="" class="btn btn-info">ona</a></td>
                            </tr>
                        @empty
                            <tr>

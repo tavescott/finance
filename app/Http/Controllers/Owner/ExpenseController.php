@@ -12,12 +12,7 @@ use Illuminate\Http\Request;
 
 class ExpenseController extends Controller
 {
-    public function business()
-    {
-        $owner = Owner::where('user_id', auth()->id())->first();
-        return Business::where('owner_id', $owner->id)->first();
 
-    }
 
     public function index()
     {
