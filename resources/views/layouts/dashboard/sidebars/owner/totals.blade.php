@@ -8,7 +8,7 @@
 
     <li class="nav-item">
         <a class="nav-link"  href="{{route('owner.records.index')}}" >
-            <i class="fa fa-shopping-cart menu-icon"></i>
+            <i class="ri-folder-2-line menu-icon"></i>
             <span class="menu-title">Rekodi</span>
         </a>
     </li>

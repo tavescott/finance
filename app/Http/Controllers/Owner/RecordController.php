@@ -11,7 +11,7 @@ class RecordController extends Controller
 
     public function index()
     {
-        $records = Record::where('business_id', $this->business()->id)->get();
+        $records = Record::where('business_id', $this->business()->id)->paginate(7);
 
         return view('owner.totals.records.index', compact('records'));
     }
@@ -30,15 +30,12 @@ class RecordController extends Controller
             'sales' => 'required_without_all:purchases,expenses,debtors,creditors',
             'purchases' => 'required_without_all:sales,expenses,debtors,creditors',
             'expenses' => 'required_without_all:purchases,sales,debtors,creditors',
-            'debtors' => 'required_without_all:purchases,expenses,sales,creditors',
-            'creditors' => 'required_without_all:purchases,expenses,debtors,sales',
+
         ],
         [
             'sales.required_without_all' => 'Tafadhali jaza angalau rekodi moja',
             'purchases.required_without_all' => 'Tafadhali jaza angalau rekodi moja',
-            'debtors.required_without_all' => 'Tafadhali jaza angalau rekodi moja',
             'expenses.required_without_all' => 'Tafadhali jaza angalau rekodi moja',
-            'creditors.required_without_all' => 'Tafadhali jaza angalau rekodi moja',
         ]);
 
         $this->business()->records()->create($data);

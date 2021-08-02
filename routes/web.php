@@ -48,6 +48,9 @@ Route::group( ['middleware' => ['auth']], function (){
         Route::resource('businesses', \App\Http\Controllers\Admin\BusinessController::class);
         Route::resource('plans', \App\Http\Controllers\Admin\PlanController::class);
         Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+        Route::resource('categories', \App\Http\Controllers\Admin\CategoryController::class)->only('index', 'store', 'destroy');
+        Route::resource('common_expenses', \App\Http\Controllers\Admin\CommonExpenseController::class)->only('index', 'store', 'destroy');
+        Route::resource('units', \App\Http\Controllers\Admin\UnitController::class)->only('index', 'store', 'destroy');
     });
 
     //Owners routes
@@ -73,6 +76,10 @@ Route::group( ['middleware' => ['auth']], function (){
         Route::resource('report', \App\Http\Controllers\Owner\ReportController::class);
         Route::post('report/day', [\App\Http\Controllers\Owner\ReportController::class, 'day_report'])->name('day.report');
         Route::get('today/report', [\App\Http\Controllers\Owner\ReportController::class, 'today_report'])->name('today.report');
+        Route::post('interval/report', [\App\Http\Controllers\Owner\ReportController::class, 'intervalReport'])->name('interval.report');
+        Route::get('report/download', [\App\Http\Controllers\Owner\ReportController::class, 'createPDF'])->name('report.download');
+
+
 
     });
 

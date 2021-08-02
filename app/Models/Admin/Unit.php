@@ -11,6 +11,8 @@ class Unit extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'level', 'value'];
+
     public function items()
     {
         return $this->hasMany(Item::class);

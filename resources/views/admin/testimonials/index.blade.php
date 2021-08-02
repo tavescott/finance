@@ -69,7 +69,7 @@
                                         </td>
                                     </tr>
                                     @empty
-                                        <tr><td>No Businesses registered yet!</td></tr>
+                                        <tr><td colspan="7">Hakuna ushuhuda bado</td></tr>
                                     @endforelse
                                     </tbody>
                                 </table>

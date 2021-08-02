@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Owner;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Plan;
 use App\Models\Business;
+use App\Models\Expense;
 use App\Models\Item;
 use App\Models\Owner;
+use App\Models\Purchase;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
 class OwnerController extends Controller
@@ -18,7 +21,11 @@ class OwnerController extends Controller
             return view('owner.totals.index');
         }
         else {
-            return view('owner.index');
+            $items  = Item::where('business_id', $this->business()->id)->get()->count();
+            $sales  = Sale::where('business_id', $this->business()->id)->get()->count();
+            $purchases  = Purchase::where('business_id', $this->business()->id)->get()->count();
+            $expenses  = Expense::where('business_id', $this->business()->id)->get()->count();
+            return view('owner.index', compact('items', 'sales', 'purchases', 'expenses'));
         }
     }
 

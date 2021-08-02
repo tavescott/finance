@@ -48,13 +48,11 @@
                                         </td>
                                         <td>
                                            <div class="text-center">
-                                               <a href="{{route('admin.plans.show', $plan)}}" class="text-success" data-bs-toggle="tooltip" data-placement="bottom" title="Angalia">
-                                                   <i class="fas fa-eye"></i>
+                                               <a href="{{route('admin.plans.edit', $plan)}}" class="text-success" data-bs-toggle="tooltip" data-placement="bottom" title="Hariri">
+                                                   <i class="fas fa-edit"></i>
                                                </a>
-                                               <a href="{{route('admin.plans.edit', $plan)}}" class="text-primary" data-bs-toggle="tooltip" data-placement="top" title="Badilisha">
-                                                   <i class="fas fa-edit px-2"></i>
-                                               </a>
-                                               <a class="text-danger" data-bs-toggle="tooltip" data-placement="bottom" title="Futa" data-toggle="modal" data-target="#deleteBusinessModal">
+
+                                               <a class="text-danger" data-bs-toggle="tooltip" data-placement="bottom" title="Futa" >
                                                    <i class="fas fa-trash"></i>
                                                    <form action="{{route('admin.plans.destroy', $plan)}}" id="deletePlanForm" method="post">
                                                        @method('DELETE')

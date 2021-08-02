@@ -23,7 +23,6 @@
                                 <th>Wadaiwa</th>
                                 <th>Wadai</th>
                             @endif
-                            <th>Vitendo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -43,7 +42,6 @@
                                     <td>{{number_format($record->debtors)}}</td>
                                     <td>{{number_format($record->creditors)}}</td>
                                 @endif
-                                <td><a href="" class="badge badge-info">ona</a></td>
                             </tr>
                         @empty
                             <tr>
@@ -52,6 +50,9 @@
                         @endforelse
                         </tbody>
                     </table>
+                    <div class="d-flex justify-content-center mt-3">
+                        {!! $records->links() !!}
+                    </div>
                 </div>
             </div>
         </div>

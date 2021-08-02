@@ -47,9 +47,7 @@
                                                <a href="{{route('admin.businesses.show', $business)}}" class="text-success" data-bs-toggle="tooltip" data-placement="bottom" title="Angalia">
                                                    <i class="fas fa-eye"></i>
                                                </a>
-                                               <a href="{{route('admin.businesses.edit', $business)}}" class="text-primary" data-bs-toggle="tooltip" data-placement="top" title="Badilisha">
-                                                   <i class="fas fa-edit px-2"></i>
-                                               </a>
+
                                                <a class="text-danger" data-bs-toggle="tooltip" data-placement="bottom" title="Futa" data-toggle="modal" data-target="#deleteBusinessModal">
                                                    <i class="fas fa-trash"></i>
                                                    <form action="{{route('admin.businesses.destroy', $business)}}" id="deleteBusinessForm" method="post">

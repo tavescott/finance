@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Expense;
 use App\Models\Purchase;
 use App\Models\Sale;
+use App\Models\User;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -54,15 +56,10 @@ class ReportController extends Controller
             $state = "Neutral";
         }
 
-        return $transactions = [
-            'date' => date('d/m/Y', strtotime($date)),
-            'business' => $business,
-            'sales' => $totalCashSales,
-            'expenses' => $totalCashExpenses,
-            'purchases' =>$totalCashPurchases,
-            'sum' => abs($sum),
-            'state' => $state
-        ];
+        $date_formated = date('d/m/Y', strtotime($date));
+
+        return $this->findState($totalCashSales, $totalCashPurchases, $totalCashExpenses, $date_formated);
+
 
     }
 
@@ -89,20 +86,86 @@ class ReportController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function intervalReport(Request $request)
     {
+        $request->validate([
+            'from_date' => 'required',
+            'to_date' => 'required',
+        ],
+        [
+            'from_date.required' => 'Chagua tarehe ya mwanzo',
+            'to_date.required' => 'Chagua tarehe ya mwanzo'
+        ]);
+        $business = $this->business();
+
+        $sales = Sale::where('business_id', $business->id)
+            ->whereBetween('created_at', [$request->from_date, $request->to_date])
+            ->orWhereBetween('date', [$request->from_date, $request->to_date])
+            ->get();
+
+        $totalCashSales = $sales->sum('cash_amount');
+
+        $purchases = Purchase::where('business_id', $business->id)
+            ->whereBetween('created_at', [$request->from_date, $request->to_date])
+            ->orWhereBetween('date', [$request->from_date, $request->to_date])
+            ->get();
+
+        $totalCashPurchases = $purchases->sum('cash_amount');
+
+        $expenses = Expense::where('business_id', $business->id)
+            ->whereBetween('created_at', [$request->from_date, $request->to_date])
+            ->orWhereBetween('date', [$request->from_date, $request->to_date])
+            ->get();
+
+        $totalCashExpenses = $expenses->sum('amount');
+
+        $transactions = $this->findState($totalCashSales, $totalCashPurchases, $totalCashExpenses, $request->from_date);
+
+        return view('owner.report.create', compact('transactions'));
+    }
+
+    public function findState($totalCashSales, $totalCashPurchases, $totalCashExpenses, $date)
+    {
+
+        $business = $this->business();
+
+        $sum = $totalCashSales - ($totalCashPurchases + $totalCashExpenses);
+
+        if($sum > 0){
+            $state = "Profit";
+        }
+        elseif ($sum < 0){
+            $state = "Loss";
+        }
+        else{
+            $state = "Neutral";
+        }
+
+        return $transactions = [
+            'date' => $date,
+            'business' => $business,
+            'sales' => $totalCashSales,
+            'expenses' => $totalCashExpenses,
+            'purchases' =>$totalCashPurchases,
+            'sum' => abs($sum),
+            'state' => $state
+        ];
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function createPDF()
+    {
+        $data = User::all();
+        view()->share('employee',$data);
+        $pdf = PDF::loadView('pdf_view', $data);
+        return $pdf->download('pdf_file.pdf');
+
+    }
+
+
     public function show($id)
     {
-        //
+
     }
 
     /**

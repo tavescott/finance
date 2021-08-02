@@ -28,7 +28,6 @@
                             <th>Jina</th>
                             <th>Muda</th>
                             <th>Jumla kuu(TZS)</th>
-                            <th>Vitendo</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -38,7 +37,6 @@
                                <td>{{$expense->common_expense->name ?? $expense->name}}</td>
                                <td>{{$expense->unit->name}}: {{$expense->multiplier }} @if($expense->number_of_days != 0) Siku:{{$expense->number_of_days}}@endif</td>
                                <td>{{number_format($expense->amount)}}</td>
-                               <td><a href="" class="btn btn-info">ona</a></td>
                            </tr>
                        @empty
                            <tr>

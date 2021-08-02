@@ -8,79 +8,36 @@ use Illuminate\Http\Request;
 
 class UnitController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $units = Unit::paginate(5);
+
+        return view('admin.units.index', compact('units'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'level' => 'required'
+        ],
+        [
+            'name.required' => 'Andika jina la kipimo',
+            'level.required' => 'Chagua kiwango',
+        ]);
+
+        Unit::create($data);
+
+        return back()->with('success', 'Kipimo kimeongezwa');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Admin\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Unit $unit)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Unit $unit)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Unit $unit)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Admin\Unit  $unit
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Unit $unit)
     {
-        //
+        $unit->delete();
+
+        return back()->with('success', 'Kipimo kimefutwa');
     }
 }

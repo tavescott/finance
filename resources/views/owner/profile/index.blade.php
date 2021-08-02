@@ -13,18 +13,15 @@
                         <a href="{{route('owner.profile.edit', auth()->user()->owner->id)}}" class="btn btn-sm btn-outline-primary">Hariri</a>
                     </div>
                     <div class="row d-flex align-items-center justify-content-center">
-                        <div class="col-md-3  text-center " >
-                            <img src="{{asset('auth/images/faces/face22.jpg')}}" class="rounded-circle border border-success rounded-circle" alt="profile"/>
-                        </div>
-                        <div class="mt-3 col-md-3 col-sm-6 text-center">
+                        <div class="mt-3 col-md-4 col-sm-6 text-center">
                             <p class="text-muted">Jina la Kwanza</p>
                             <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->first_name}}</h3>
                         </div>
-                        <div class="mt-3 col-md-3 col-sm-6 text-center">
+                        <div class="mt-3 col-md-4 col-sm-6 text-center">
                             <p class="text-muted">Jina la Kati</p>
                             <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->middle_name ?? " - "}}</h3>
                         </div>
-                        <div class=" mt-3 col-md-3 col-sm-6 text-center">
+                        <div class=" mt-3 col-md-4 col-sm-6 text-center">
                             <p class="text-muted">Jina la Mwisho</p>
                             <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->last_name}}</h3>
                         </div>

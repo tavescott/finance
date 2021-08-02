@@ -52,30 +52,6 @@
                             @enderror
                         </div>
 
-                        @if(session()->get('business')->credit_allowed == "Yes")
-
-                            <div class="form-group">
-                                <label for="customer">Jumla ya Wadaiwa</label>
-                                <input type="number" class="form-control @error('debtors') is-invalid @enderror" id="debtors" name="debtors" value="{{old('debtors')}}">
-                                @error('debtors')
-                                <span class="invalid-feedback" role="alert">
-                               <strong>{{ $message }}</strong>
-                            </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="customer">Jumla ya Wadai</label>
-                                <input type="number" class="form-control @error('creditors') is-invalid @enderror" id="creditors" name="creditors" value="{{old('creditors')}}">
-                                @error('creditors')
-                                <span class="invalid-feedback" role="alert">
-                               <strong>{{ $message }}</strong>
-                            </span>
-                                @enderror
-                            </div>
-
-                        @endif
-
                         <button type="submit" class="btn btn-primary mr-2">Hifadhi rekodi</button>
                     </form>
                 </div>

@@ -13,4 +13,5 @@ class CommonExpense extends Model
     {
         return $this->hasMany(Expense::class);
     }
+    protected $fillable = ['name'];
 }

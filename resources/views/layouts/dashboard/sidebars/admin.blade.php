@@ -34,3 +34,19 @@
                 <span class="menu-title">Shuhuda</span>
             </a>
         </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <i class="icon-layout menu-icon"></i>
+                <span class="menu-title">Visaidizi</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.categories.index')}}">Makundi</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.common_expenses.index')}}">Matumizi</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.units.index')}}">Vipimo</a></li>
+                </ul>
+            </div>
+        </li>

@@ -56,14 +56,13 @@ class PurchaseController extends Controller
             [
                 'item_id' => 'required',
                 'date' => '',
-                'supplier' => 'required',
+                'supplier' => '',
                 'unit_quantity' => 'required_without:mini_unit_quantity',
                 'mini_unit_quantity' => 'required_without:unit_quantity',
                 'cash_amount' => 'required',
             ],
             [
                 'item_id.required' => 'Bidhaa inahitajika',
-                'supplier.required' => 'Tafadhali andika muuzaji',
                 'unit_quantity.required_without' => 'Tafadhali jaza idadi',
                 'mini_unit_quantity.required_without' => 'Tafadhali jaza idadi',
                 'cash_amount' => 'Tafadhali jaza bei',

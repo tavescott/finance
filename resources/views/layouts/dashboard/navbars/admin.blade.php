@@ -3,7 +3,7 @@
 </li>
 <li class="nav-item nav-profile dropdown">
     <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-        <img src="{{asset('auth/images/faces/face28.jpg')}}" alt="profile"/>
+        <img src="{{asset('auth/images/avatar.svg')}}" alt="profile"/>
     </a>
     <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 
