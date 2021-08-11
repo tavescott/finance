@@ -48,10 +48,10 @@
                                     <div class="mb-4 d-flex justify-content-between align-items-center">
                                         <div class="badge badge-info border border-light">{{$loop->iteration}}</div>
                                         <div class="badge badge-outline-light">
-                                            <a href="{{route('owner.businesses.show', $business)}}" class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Angalia"><i class="fas fa-eye"></i></a>
-                                            <a href="{{route('owner.businesses.edit', $business)}}" class="badge badge-success" data-toggle="tooltip" data-placement="top" title="Badili"><i class="fas fa-edit"></i></a>
+                                            <a href="{{route('owner.businesses.show', $business)}}" class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Angalia"><i class="ri-eye-line"></i></a>
+                                            <a href="{{route('owner.businesses.edit', $business)}}" class="badge badge-success" data-toggle="tooltip" data-placement="top" title="Badili"><i class="ri-edit-box-line"></i></a>
                                             <a class="badge badge-danger" data-bs-toggle="tooltip" data-placement="bottom" title="Futa" data-toggle="modal" data-target="#deleteBusinessModal">
-                                                <i class="fas fa-trash-alt"></i>
+                                                <i class="ri-delete-bin-5-line"></i>
                                                 <form action="{{ route('owner.businesses.destroy', $business) }}" id="deleteBusinessForm" method="POST">
                                                     @method('DELETE')
                                                     @csrf
@@ -73,9 +73,9 @@
                             <div class="col-md-6 mb-4 stretch-card transparent">
                                 <div class="card card-inverse-light border border-primary">
                                     <div class="card-body ">
-                                        <div class="text-center">
+                                        <div class="text-center ">
                                             <p class="">Ongeza biashara</p>
-                                            <a href="{{route('owner.businesses.create')}}" class="fa-6x"><i class="fas fa-plus-circle text-primary"></i></a>
+                                            <a href="{{route('owner.businesses.create')}}" class="fa-7x"><i class="ri-add-circle-line p-0 text-primary"></i></a>
                                         </div>
                                     </div>
                                 </div>

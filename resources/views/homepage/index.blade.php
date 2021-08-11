@@ -113,8 +113,8 @@
                                 <li>Rekodi Manunuzi</li>
                                 <li>Rekodi Mauzo</li>
                                 <li>Rekodi Matumizi</li>
-                                <li><b>Biashara bila kikomo</b></li>
-                                <li><b>Watumiaji bila kikomo</b></li>
+                                <li><b>Biashara nne</b></li>
+                                <li><b>Watumiaji nne</b></li>
                                 <li>Huduma kwa wateja 24/7</li>
                                 <li><b>Ripoti Bure</b></li>
                                 <li><b>Ushauri wa wataalam</b></li>
@@ -148,7 +148,7 @@
                                 {{$testimonial->content}}
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
-                            <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                            <img src="{{asset('images/profile_images/' . $testimonial->owner->user->image)}}" class="testimonial-img" alt="">
                             <h3>{{$testimonial->owner->first_name . " " . $testimonial->owner->last_name}}</h3>
                             <h4>{{$testimonial->business->name}}</h4>
                         </div>

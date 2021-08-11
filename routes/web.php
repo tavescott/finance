@@ -87,5 +87,13 @@ Route::group( ['middleware' => ['auth']], function (){
     Route::group(['prefix' => 'helper', 'middleware' => 'role:Helper', 'as' => 'helper.'], function () {
         Route::resource('/', \App\Http\Controllers\Helper\HelperController::class);
     });
+
+    //Profile Image Routes
+    Route::post('user/profile/image', [\App\Http\Controllers\UserController::class, 'image'])->name('image.update');
+    Route::delete('user/profile/image', [\App\Http\Controllers\UserController::class, 'destroyImage'])->name('image.delete');
+    Route::post('user/profile/password', [\App\Http\Controllers\UserController::class, 'password'])->name('password.update');
 });
 
+Route::get('/charts', function (\App\Charts\TestChart $chart){
+    return view('home', ['chart' => $chart->build()]);
+});

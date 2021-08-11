@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.main')
+@extends('layouts.dashboard.out')
 @section('title')
     Hariri taarifa binafsi
 @endsection
@@ -128,4 +128,5 @@
             </div>
         </div>
     </div>
+    @include('components.profile')
 @endsection

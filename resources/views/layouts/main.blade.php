@@ -94,8 +94,8 @@
                                 Moshi, Kilimanjaro<br>
                                 Tanzania <br><br>
                                 <strong>Phone:</strong> <a href="tel:+255742529173">+255 742 529 173</a><br>
-                                <strong>Email:</strong> <a href="mailto:hello@nicril.com">hello@nicril.com</a><br>
-                                <strong>Website:</strong><a href="https://www.nicril.com" target="_blank">www.nicril.com</a><br>
+                                <strong>Email:</strong> <a href="mailto:info@rombonation.com">info@rombonation.com</a><br>
+                                <strong>Website:</strong><a href="https://imudu.rombonation.com" target="_blank">imudu.rombonation.com</a><br>
                             </p>
                         </div>
 

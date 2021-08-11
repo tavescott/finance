@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.main')
+@extends('layouts.dashboard.out')
 @section('title')
     Akaunti yangu - Mmiliki
 @endsection
@@ -13,15 +13,22 @@
                         <a href="{{route('owner.profile.edit', auth()->user()->owner->id)}}" class="btn btn-sm btn-outline-primary">Hariri</a>
                     </div>
                     <div class="row d-flex align-items-center justify-content-center">
-                        <div class="mt-3 col-md-4 col-sm-6 text-center">
+                        <div class="mt-3 col-md-3 col-sm-6 text-center">
+                            @if(auth()->user()->image)
+                                <img src="{{asset('images/profile_images/'.auth()->user()->image)}}" class="rounded-circle" alt="profile" height="100"/>
+                            @else
+                                <img src="{{asset('auth/images/avatar.svg')}}" alt="profile"/>
+                            @endif
+                        </div>
+                        <div class="mt-3 col-md-3 col-sm-6 text-center">
                             <p class="text-muted">Jina la Kwanza</p>
                             <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->first_name}}</h3>
                         </div>
-                        <div class="mt-3 col-md-4 col-sm-6 text-center">
+                        <div class="mt-3 col-md-3 col-sm-6 text-center">
                             <p class="text-muted">Jina la Kati</p>
                             <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->middle_name ?? " - "}}</h3>
                         </div>
-                        <div class=" mt-3 col-md-4 col-sm-6 text-center">
+                        <div class=" mt-3 col-md-3 col-sm-6 text-center">
                             <p class="text-muted">Jina la Mwisho</p>
                             <h3 class="text-primary fs-20 font-weight-medium">{{auth()->user()->owner->last_name}}</h3>
                         </div>
@@ -52,7 +59,7 @@
                         </div>
                         <div class="col-md-6 text-center">
                             <p class="text-muted">Barua Pepe</p>
-                            <ul class="text-primary font-weight-bold text-left">
+                            <ul class="text-primary font-weight-bold">
                                 <li>{{auth()->user()->email}}</li>
                                 <li>{{auth()->user()->owner->email_2 ?? " - "}}</li>
                             </ul>

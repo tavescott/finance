@@ -11,8 +11,7 @@ class HomepageController extends Controller
     public function index()
     {
         $plans = Plan::all();
-        $testimonials = Testimonial::where('approved', 1)->latest()->paginate(6);
-
+        $testimonials = Testimonial::with('owner.user', 'business')->where('approved', 1)->latest()->paginate(6);
         return view('homepage.index', compact('plans', 'testimonials'));
     }
 
