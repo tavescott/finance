@@ -403,14 +403,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100vh;
   position: relative;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/hero-2.jpg") top center;
   background-size: cover;
   position: relative;
 }
 
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.0);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -427,12 +427,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 56px;
   font-weight: 700;
   line-height: 72px;
-  color: #124265;
+  color: #fff;
   font-family: "Poppins", sans-serif;
 }
 
 #hero h2 {
-  color: #5e5e5e;
+  color: #fff;
   margin: 10px 0 0 0;
   font-size: 22px;
 }
@@ -520,13 +520,16 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 992px) {
   #hero {
     height: auto;
+    background: url("../img/hero-bg.jpg") top center;
   }
   #hero h1 {
+    color: #124265;
     font-size: 28px;
     line-height: 36px;
   }
   #hero h2 {
     font-size: 18px;
+    color: #2487ce;
     line-height: 24px;
   }
 }

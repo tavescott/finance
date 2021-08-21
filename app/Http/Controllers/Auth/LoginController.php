@@ -26,15 +26,31 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/redirect';
+    protected $redirectTo ;
 
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @return string
      */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function redirectTo()
+    {
+        if (auth()->user()->role_id === 1) {
+            return $this->redirectTo = route('admin.index');
+        }
+
+        elseif (auth()->user()->role_id === 2) {
+            return $this->redirectTo = route('owner.businesses.index');
+        }
+
+        else{
+            return redirect('/home');
+        }
     }
 }

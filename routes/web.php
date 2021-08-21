@@ -28,14 +28,17 @@ Route::get('/maswali', [\App\Http\Controllers\HomepageController::class, 'faq'])
 Route::get('owner/purchases/items/{id}', [\App\Http\Controllers\Owner\PurchaseController::class, 'show_item']);
 Route::get('owner/sales/items/{id}', [\App\Http\Controllers\Owner\SaleController::class, 'show_item']);
 
+//Email Verification Routes
+Route::get('/email/verify', [\App\Http\Controllers\MailController::class, 'verifyMail'])->name('mail.verification');
+Route::get('/email/verify/{email}/{id}', [\App\Http\Controllers\MailController::class, 'verifyMailButton'])->name('verification.button');
+Route::post('/email/verify', [\App\Http\Controllers\MailController::class, 'verifyMailPost'])->name('mail.verification.post');
+
+//Phone Verification Routes
+Route::get('/phone/verify', [\App\Http\Controllers\PhoneController::class, 'verifyPhone'])->name('phone.verification');
+Route::post('/phone/verify', [\App\Http\Controllers\PhoneController::class, 'verifyPhonePost'])->name('phone.verification.post');
+
 //Routes requiring authentication
 Auth::routes();
-
-//Email Verification Routes
-Route::get('/email/verify', [\App\Http\Controllers\MailController::class, 'verifyMail'])->name('verification.notice');
-Route::get('/email/verify/{email}/{id}', [\App\Http\Controllers\MailController::class, 'verifyMailButton'])->name('verification.button');
-Route::post('/email/verify', [\App\Http\Controllers\MailController::class, 'verifyMailPost'])->name('verification.post');
-
 
 Route::group( ['middleware' => ['auth']], function (){
 
@@ -54,31 +57,34 @@ Route::group( ['middleware' => ['auth']], function (){
     });
 
     //Owners routes
-    Route::group(['prefix' => 'owner', 'middleware' => 'role:Owner', 'as' => 'owner.'], function (){
-        Route::resource('/', \App\Http\Controllers\Owner\OwnerController::class);
-        Route::resource('/profile', \App\Http\Controllers\Owner\ProfileController::class);
+    Route::group(['prefix' => 'owner', 'middleware' => ['role:Owner'], 'as' => 'owner.'], function (){
         Route::get('preliminary/business', [\App\Http\Controllers\PreliminaryController::class, 'businessDetails'])->name('preliminary.business');
         Route::post('preliminary/business', [\App\Http\Controllers\PreliminaryController::class, 'businessPost'])->name('preliminary.business.post');
         Route::get('preliminary/personal', [\App\Http\Controllers\PreliminaryController::class, 'personalDetails'])->name('preliminary.personal');
         Route::post('preliminary/personal', [\App\Http\Controllers\PreliminaryController::class, 'personalPost'])->name('preliminary.personal.post');
 
-        Route::resource('businesses', \App\Http\Controllers\Owner\BusinessController::class);
-        Route::get('/business/{id}', [\App\Http\Controllers\HomeController::class, 'setCookie'])->name('business.id');
-        Route::post('/change-plan', [\App\Http\Controllers\Owner\OwnerController::class, 'change_plan'])->name('change.plan');
-        Route::resource('items', \App\Http\Controllers\Owner\ItemController::class);
-        Route::resource('purchases', \App\Http\Controllers\Owner\PurchaseController::class);
-        Route::resource('sales', \App\Http\Controllers\Owner\SaleController::class);
-        Route::resource('expenses', \App\Http\Controllers\Owner\ExpenseController::class);
-        Route::resource('records', \App\Http\Controllers\Owner\RecordController::class);
-        Route::resource('testimonials', \App\Http\Controllers\Owner\TestimonialController::class);
+        Route::group(['middleware' => 'phone_verified'], function () {
 
-        //Report Routes
-        Route::resource('report', \App\Http\Controllers\Owner\ReportController::class);
-        Route::post('report/day', [\App\Http\Controllers\Owner\ReportController::class, 'day_report'])->name('day.report');
-        Route::get('today/report', [\App\Http\Controllers\Owner\ReportController::class, 'today_report'])->name('today.report');
-        Route::post('interval/report', [\App\Http\Controllers\Owner\ReportController::class, 'intervalReport'])->name('interval.report');
-        Route::get('report/download', [\App\Http\Controllers\Owner\ReportController::class, 'createPDF'])->name('report.download');
+            Route::resource('/', \App\Http\Controllers\Owner\OwnerController::class);
+            Route::resource('/profile', \App\Http\Controllers\Owner\ProfileController::class);
 
+            Route::resource('businesses', \App\Http\Controllers\Owner\BusinessController::class);
+            Route::get('/business/{id}', [\App\Http\Controllers\HomeController::class, 'setCookie'])->name('business.id');
+            Route::post('/change-plan', [\App\Http\Controllers\Owner\OwnerController::class, 'change_plan'])->name('change.plan');
+            Route::resource('items', \App\Http\Controllers\Owner\ItemController::class);
+            Route::resource('purchases', \App\Http\Controllers\Owner\PurchaseController::class);
+            Route::resource('sales', \App\Http\Controllers\Owner\SaleController::class);
+            Route::resource('expenses', \App\Http\Controllers\Owner\ExpenseController::class);
+            Route::resource('records', \App\Http\Controllers\Owner\RecordController::class);
+            Route::resource('testimonials', \App\Http\Controllers\Owner\TestimonialController::class);
+
+            //Report Routes
+            Route::resource('report', \App\Http\Controllers\Owner\ReportController::class);
+            Route::post('report/day', [\App\Http\Controllers\Owner\ReportController::class, 'day_report'])->name('day.report');
+            Route::get('today/report', [\App\Http\Controllers\Owner\ReportController::class, 'today_report'])->name('today.report');
+            Route::post('interval/report', [\App\Http\Controllers\Owner\ReportController::class, 'intervalReport'])->name('interval.report');
+            Route::get('report/download', [\App\Http\Controllers\Owner\ReportController::class, 'createPDF'])->name('report.download');
+        });
 
 
     });
@@ -96,4 +102,10 @@ Route::group( ['middleware' => ['auth']], function (){
 
 Route::get('/charts', function (\App\Charts\TestChart $chart){
     return view('home', ['chart' => $chart->build()]);
+});
+
+Route::get('/test', function(){
+    $sms = new \App\Classes\SMS();
+    $sms->sendSingleSMS('255786065529','Testing from Imudu');
+    dump('Sent');
 });

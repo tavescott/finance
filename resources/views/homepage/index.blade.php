@@ -22,7 +22,7 @@
             <div class="row icon-boxes text-center">
                 <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
                     <div class="icon-box">
-                        <div class="icon d-flex justify-content-center"><i class="fa fa-shopping-cart"></i></div>
+                        <div class="icon d-flex justify-content-center"><i class="ri-shopping-cart-2-line"></i></div>
                         <h4 class="title text-center"><a href="">Manunuzi</a></h4>
                         <p class="description">Hifadhi taarifa za manunuzi ya bidhaa katika biashara yako.</p>
                     </div>

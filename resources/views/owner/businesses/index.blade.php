@@ -75,7 +75,7 @@
                                     <div class="card-body ">
                                         <div class="text-center ">
                                             <p class="">Ongeza biashara</p>
-                                            <a href="{{route('owner.businesses.create')}}" class="fa-7x"><i class="ri-add-circle-line p-0 text-primary"></i></a>
+                                            <a href="{{route('owner.businesses.create')}}"><i class="ri-add-circle-line p-0 ri-7x text-primary"></i></a>
                                         </div>
                                     </div>
                                 </div>

@@ -19,7 +19,6 @@ class Owner extends Model
         'last_name',
         'gender',
         'birth_date',
-        'phone_number',
         'ward_region',
         'id_type',
         'id_number',

@@ -54,14 +54,12 @@
                             <p class="text-muted">Namba za simu</p>
                             <ul style="list-style: none; letter-spacing: 2px" class="text-primary font-weight-bold">
                                 <li>0{{auth()->user()->phone}}</li>
-                                <li>0{{auth()->user()->owner->phone_2 ?? " - "}}</li>
                             </ul>
                         </div>
                         <div class="col-md-6 text-center">
                             <p class="text-muted">Barua Pepe</p>
                             <ul class="text-primary font-weight-bold">
                                 <li>{{auth()->user()->email}}</li>
-                                <li>{{auth()->user()->owner->email_2 ?? " - "}}</li>
                             </ul>
                         </div>
                     </div>

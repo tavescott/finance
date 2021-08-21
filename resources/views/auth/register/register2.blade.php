@@ -19,11 +19,14 @@
         </div>
 
         <div class="form-group">
-            <input type="tel" name="phone" class="form-control form-control-lg @error('phone') is-invalid @enderror"  value="{{ old('phone') }}" placeholder="Namba ya simu" />
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >+255</span>
+                </div>
+                <input type="tel" name="phone" class="form-control form-control-lg @error('phone') is-invalid @enderror"  value="{{ old('phone') }}" placeholder="Namba ya simu" />
+            </div>
             @error('phone')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
+                <small class="text-danger font-weight-bold">{{ $message }}</small>
             @enderror
         </div>
 

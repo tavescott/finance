@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/login';
+    protected $redirectTo = '/owner/businesses';
 
     /**
      * Create a new controller instance.
@@ -50,13 +50,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'phone' => ['required', 'max:10', 'min:10', 'unique:users'],
+            'phone' => ['required', 'max:9', 'min:9', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
             'phone.required' => 'Namba ya simu inahitajika',
-            'phone.max' => 'Muundo wa namba ya simu: 0742529173',
-            'phone.min' => 'Muundo wa namba ya simu: 0742529173',
+            'phone.max' => 'Muundo wa namba ya simu: 742529173',
+            'phone.min' => 'Muundo wa namba ya simu: 742529173',
             'phone.unique' => 'Namba ya simu imeshachukuliwa',
             'email.required' => 'Barua pepe inahitajika',
             'email.email' => 'Andika barua pepe sahihi',

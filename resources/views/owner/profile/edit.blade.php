@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-6">
                                 <label for="Email">Barua Pepe</label>
                                 <input type="email" class="form-control @error(old('email')) is-invalid @enderror" name="email" value="{{old('email') ?? auth()->user()->email ?? ''}}" id="email">
                                 @error('email')
@@ -84,16 +84,8 @@
                                 </span>
                                 @enderror
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="Middle Name">Barua pepe <sup>2</sup></label>
-                                <input type="email" class="form-control @error(old('email_2')) is-invalid @enderror" name="email_2" value="{{old('email_2') ?? $owner->email_2 ?? ''}}" id="email_2">
-                                @error('email_2')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-3">
+
+                            <div class="form-group col-md-6">
                                 <label for="Last Name">Namba ya simu</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -102,20 +94,6 @@
                                     <input type="number" class="form-control @error(old('phone')) is-invalid @enderror" name="phone" value="{{old('phone') ?? auth()->user()->phone ?? ''}}" id="phone">
                                 </div>
                                 @error('phone')
-                                <span class="invalid-feedback" role="alert">
-                                   <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="Last Name">Namba ya simu <sup>2</sup></label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" >+255</span>
-                                    </div>
-                                    <input type="number" class="form-control @error(old('phone_2')) is-invalid @enderror" name="phone_2" value="{{old('phone_2') ?? $owner->phone_2 ?? ''}}" id="phone_2">
-                                </div>
-                                @error('phone_2')
                                 <span class="invalid-feedback" role="alert">
                                    <strong>{{ $message }}</strong>
                                 </span>

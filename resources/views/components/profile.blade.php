@@ -28,8 +28,9 @@
                         </span>
                         @enderror
                         <button class="btn btn-info  mt-3 w-100">Badili</button>
+                        @if(auth()->user()->image)
                         <a class="btn btn-danger  mt-3 w-100" data-toggle="modal" data-target="#deleteProfilePictureModal">Futa Picha</a>
-
+                        @endif
                     </form>
                 </div>
             </div>

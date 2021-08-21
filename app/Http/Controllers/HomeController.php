@@ -25,42 +25,38 @@ class HomeController extends Controller
             : redirect('/');
     }
 
-    public function redirects(Request $request)
-    {
-        if (\auth()->user()->role_id == 1){
+//    public function redirects(Request $request)
+//    {
+//        if (\auth()->user()->role_id == 1){
+//
+//            return redirect()->route('admin.index');
+//        }
+//        else{
 
-            return redirect()->route('admin.index');
-        }
-        else{
-            if (empty(auth()->user()->email_verified_at)){
-                return redirect('/email/verify');
-            }
-
-            else{
-
-                if (\auth()->user()->is_complete == 0 && \auth()->user()->role_id != 1){
-                    return redirect()->route('owner.preliminary.personal');
-                }
-
-                else{
-
-                    if (auth()->user()->role->name == 'Owner'){
-                        return redirect()->route('owner.businesses.index');
-                    }
-
-                    elseif (auth()->user()->role->name == 'Helper'){
-                        return redirect('/helper');
-                    }
-
-                    else{
-                        return $this->index();
-                    }
-
-                }
-            }
-        }
-
-    }
+//
+//                if (\auth()->user()->is_complete == 0 && \auth()->user()->role_id != 1){
+//                    return redirect()->route('owner.preliminary.personal');
+//                }
+//
+//                else{
+//
+//                    if (auth()->user()->role->name == 'Owner'){
+//                        return redirect()->route('owner.businesses.index');
+//                    }
+//
+//                    elseif (auth()->user()->role->name == 'Helper'){
+//                        return redirect('/helper');
+//                    }
+//
+//                    else{
+//                        return $this->index();
+//                    }
+//
+//                }
+//            }
+//        }
+//
+//    }
 
 //    public function setCookie(Request $request, $id)
 //    {
@@ -73,6 +69,7 @@ class HomeController extends Controller
 //    }
 
     public function setCookie(Request $request, $id) {
+
         $business = Business::find($id);
 
         $request->session()->put('business', $business);

@@ -22,8 +22,6 @@ class CreateOwnersTable extends Migration
             $table->string('last_name');
             $table->string('gender')->nullable();
             $table->date('birth_date')->nullable();
-            $table->integer('phone_2')->nullable();
-            $table->string('email_2')->nullable();
             $table->string('ward_region')->nullable();
             $table->string('image_path')->nullable();
 

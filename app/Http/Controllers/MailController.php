@@ -9,28 +9,31 @@ use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function verifyMail()
-
+    public function __construct()
     {
-        if (auth()->user()->is_verified == 1){
-            return redirect('/redirect');
-        }
-        else{
-            $user = auth()->user();
-            if (empty($user->verification_code)){
-                Mail::to(auth()->user()->email)->send(new VerifyEmailMail($this->generateCode()));
-            }
+        $this->middleware('auth');
+    }
 
-            $mail = $this->hide_mail($user->email);
-
-            return view('auth.verify', compact('mail'));
+    public function verifyMail()
+    {
+        if (auth()->user()->email_verified_at !== null){
+            return back();
         }
+
+        $user = auth()->user();
+        if (empty($user->email_verification_code)){
+            Mail::to(auth()->user()->email)->send(new VerifyEmailMail($this->generateCode()));
+        }
+
+        $mail = $this->hide_mail($user->email);
+
+        return view('auth.verify', compact('mail'));
     }
 
     public function verifyMailPost(Request $request)
     {
         $request->validate([
-            'code' => 'required|min:6|max:6|exists:users,verification_code'
+            'code' => 'required|min:6|max:6|exists:users,email_verification_code'
         ],
         [
             'code.required' => 'Namba ya uthibitisho yatakiwa',
@@ -43,7 +46,11 @@ class MailController extends Controller
 
         $this->verifyCode($user, $request->code);
 
-        return redirect('/redirect');
+        if ($user->is_complete === 0){
+            return redirect()->route('owner.preliminary.personal')->with('success', 'Hongera, barua pepe yako  imethibitishwa');
+        }
+
+        return redirect()->route('owner.businesses.index')->with('success', 'Hongera, barua pepe yako imethibitishwa');
     }
 
     public function verifyMailButton($email,$id)
@@ -52,13 +59,12 @@ class MailController extends Controller
 
         $this->verifyCode($user, $id);
 
-        return redirect('/redirect');
-
+        return redirect()->route('owner.preliminary.personal')->with('success', 'Hongera, akaunti yako imethibitishwa');
     }
 
     public function verifyCode($user, $code)
     {
-        if ($user->verification_code != $code){
+        if ($user->email_verification_code != $code){
 
             return redirect('email/verify')->with('fail', 'Umekosea namba ya uthibitisho');
 
@@ -72,10 +78,10 @@ class MailController extends Controller
     public function generateCode()
     {
         $code = rand(100000, 999999);
-        $check = User::where('verification_code', $code)->first();
+        $check = User::where('email_verification_code', $code)->first();
         if ($check == null){
             if (empty(auth()->user()->email_verified_at)){
-                auth()->user()->verification_code = $code;
+                auth()->user()->email_verification_code = $code;
                 auth()->user()->save();
             }
         }

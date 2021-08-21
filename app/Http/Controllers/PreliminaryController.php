@@ -61,13 +61,13 @@ class PreliminaryController extends Controller
 
         $owner = Owner::where('user_id', auth()->id())->first();
 
-        $test = $owner->business()->create($data);
+        $owner->business()->create($data);
 
         $user = auth()->user();
         $user->is_complete = 1;
         $user->save();
 
-        return redirect('/redirect')->with('id', $test->id);
+        return redirect()->route('owner.businesses.index');
 
     }
 

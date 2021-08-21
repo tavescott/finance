@@ -44,8 +44,6 @@ class ProfileController extends Controller
         $owner->gender = $data['gender'];
         $owner->birth_date = Carbon::make($data['birth_date']);
         $owner->ward_region = $data['ward_region'];
-        $owner->email_2 = $data['email_2'];
-        $owner->phone_2 = $data['phone_2'];
 
         $user->email = $data['email'];
         $user->phone = $data['phone'];
