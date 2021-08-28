@@ -10,7 +10,7 @@
     <form class="pt-3" method="POST" action="{{ route('login') }}">
         @csrf
         <div class="form-group">
-            <input type="email" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror"  value="{{ old('email') }}" placeholder="Barua Pepe">
+            <input type="text" name="email" class="form-control form-control-lg @error('email') is-invalid @enderror"  value="{{ old('email') }}" placeholder="Barua Pepe">
             @error('email')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>

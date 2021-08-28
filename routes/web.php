@@ -2,9 +2,12 @@
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\Role;
+use PDF;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -105,7 +108,7 @@ Route::get('/charts', function (\App\Charts\TestChart $chart){
 });
 
 Route::get('/test', function(){
-    $sms = new \App\Classes\SMS();
-    $sms->sendSingleSMS('255786065529','Testing from Imudu');
-    dump('Sent');
+    $data = \App\Models\User::all();
+    $pdf = PDF::loadView('pdf.invoice', $data);
+    return $pdf->download('invoice.pdf');
 });

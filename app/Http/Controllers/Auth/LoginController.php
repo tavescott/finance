@@ -53,4 +53,21 @@ class LoginController extends Controller
             return redirect('/home');
         }
     }
+
+    public function username()
+    {
+        $login = request()->input('email');
+
+        if(is_numeric($login)){
+            $field = 'phone';
+        } elseif (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+            $field = 'email';
+        } else {
+            $field = 'username';
+        }
+
+        request()->merge([$field => $login]);
+
+        return $field;
+    }
 }
