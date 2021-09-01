@@ -22,8 +22,8 @@ class PhoneController extends Controller
 
         if(auth()->user()->phone_verification_code === null){
             $code = $this->generateCode();
-            $message = 'Habari! karibu katika mfumo wa Imudu. Namba yako ya uthibitisho: '. $code;
-//            $sms = new SMS();
+            $message = 'Habari! karibu katika mfumo wa Imudu. Namba yako ya uthibitisho ni: '. $code;
+            $sms = new SMS();
 //            $sms->sendSingleSMS(auth()->user()->phone, $message);
         }
 

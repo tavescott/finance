@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Owner;
 use App\Http\Controllers\Controller;
 use App\Models\Expense;
 use App\Models\Purchase;
+use App\Models\Record;
 use App\Models\Sale;
 use App\Models\User;
 use Barryvdh\DomPDF\PDF;
@@ -22,27 +23,51 @@ class ReportController extends Controller
     public function create($date)
     {
         $business = $this->business();
-
-        $sales = Sale::where('business_id', $business->id)
+        if ($business->record_type === 'Each'){
+            $sales = Sale::where('business_id', $business->id)
                 ->whereDate('created_at', $date)
                 ->orWhereDate('date', $date)
                 ->get();
 
-        $totalCashSales = $sales->sum('cash_amount');
+            $totalCashSales = $sales->sum('cash_amount');
 
-        $purchases = Purchase::where('business_id', $business->id)
-            ->whereDate('created_at', $date)
-            ->orWhereDate('date', $date)
-            ->get();
+            $purchases = Purchase::where('business_id', $business->id)
+                ->whereDate('created_at', $date)
+                ->orWhereDate('date', $date)
+                ->get();
 
-        $totalCashPurchases = $purchases->sum('cash_amount');
+            $totalCashPurchases = $purchases->sum('cash_amount');
 
-        $expenses = Expense::where('business_id', $business->id)
-            ->whereDate('created_at', $date)
-            ->orWhereDate('date', $date)
-            ->get();
+            $expenses = Expense::where('business_id', $business->id)
+                ->whereDate('created_at', $date)
+                ->orWhereDate('date', $date)
+                ->get();
 
-        $totalCashExpenses = $expenses->sum('amount');
+            $totalCashExpenses = $expenses->sum('amount');
+        }
+        else{
+            $sales = Record::where('business_id', $business->id)
+                ->whereDate('created_at', $date)
+                ->orWhereDate('date', $date)
+                ->get();
+
+            $totalCashSales = $sales->sum('sales');
+
+            $purchases = Record::where('business_id', $business->id)
+                ->whereDate('created_at', $date)
+                ->orWhereDate('date', $date)
+                ->get();
+
+            $totalCashPurchases = $purchases->sum('purchases');
+
+            $expenses = Record::where('business_id', $business->id)
+                ->whereDate('created_at', $date)
+                ->orWhereDate('date', $date)
+                ->get();
+
+            $totalCashExpenses = $expenses->sum('expenses');
+        }
+
 
         $sum = $totalCashSales - ($totalCashPurchases + $totalCashExpenses);
 
@@ -97,6 +122,7 @@ class ReportController extends Controller
             'to_date.required' => 'Chagua tarehe ya mwanzo'
         ]);
         $business = $this->business();
+
 
         $sales = Sale::where('business_id', $business->id)
             ->whereBetween('created_at', [$request->from_date, $request->to_date])

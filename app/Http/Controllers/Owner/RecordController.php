@@ -44,6 +44,11 @@ class RecordController extends Controller
 
     }
 
+    public function report()
+    {
+
+    }
+
     /**
      * Display the specified resource.
      *
