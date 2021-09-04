@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('auth/vendors/feather/feather.css')}}">
     <link rel="stylesheet" href="{{asset('auth/vendors/ti-icons/css/themify-icons.css')}}">
     <link rel="stylesheet" href="{{asset('auth/vendors/css/vendor.bundle.base.css')}}">
+    <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->

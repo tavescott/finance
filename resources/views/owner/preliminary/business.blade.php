@@ -6,6 +6,8 @@
      <div class="text-center m-4">
          <h4>Malizia Taarifa za awali</h4>
      </div>
+     <p class="text-center py-3 "><i class="ri-hotel-line ri-4x text-primary border border-success rounded-circle p-2 border"></i></p>
+
      <h5 class="text-primary">2. Taarifa za Biashara</h5>
 
      <form action="{{route('owner.preliminary.business.post')}}" method="POST">

@@ -37,6 +37,9 @@ Route::post('/email/verify', [\App\Http\Controllers\MailController::class, 'veri
 
 //Phone Verification Routes
 Route::get('/phone/verify', [\App\Http\Controllers\PhoneController::class, 'verifyPhone'])->name('phone.verification');
+Route::get('/phone/resend', [\App\Http\Controllers\PhoneController::class, 'resendCode'])->name('phone.resend');
+Route::get('/phone/change', [\App\Http\Controllers\PhoneController::class, 'changePhone'])->name('phone.change');
+Route::post('/phone/change', [\App\Http\Controllers\PhoneController::class, 'changePhonePost']);
 Route::post('/phone/verify', [\App\Http\Controllers\PhoneController::class, 'verifyPhonePost'])->name('phone.verification.post');
 
 //Routes requiring authentication

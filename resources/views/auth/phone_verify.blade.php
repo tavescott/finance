@@ -31,8 +31,8 @@
     </form>
 
     <div class="text-center mt-3 font-weight-light">
-        <p>Hujapata ujumbe? <a href="{{route('register')}}" class="text-primary">Tuma tena</a></p>
-        <p class="mt-3">Umekosea namba ya simu? <a href="{{route('register')}}" class="text-primary">Badilisha</a></p>
+        <p>Hujapata ujumbe? <a href="{{route('phone.resend')}}" class="text-primary">Tuma tena</a></p>
+        <p class="mt-3">Umekosea namba ya simu? <a href="{{route('phone.change')}}" class="text-primary">Badilisha</a></p>
     </div>
 
 @endsection
